@@ -8,23 +8,26 @@ if(isset($_POST['añadir']) && !empty($_POST['titulo']) && !empty($_POST['biblio
         $bibliotecario=$_POST["bibliotecario"];
         $estudiante=$_POST["estudiante"];
         $fecha=$_POST["fecha"];
+        $fecha = date('Y-m-d H:i');
 
 
         $mysql = new MySQL;//nuevo mysql
         $mysql->conectar();//funcion almacendad en mysql.php
         //consulta de la insercion de datos en la base de datos, donde hace las respectivas consultas
-        $sql=$mysql->efectuarConsulta("insert into biblioteca3.prestamos(fecha_prestamo,bibliotecario_id_bibliotecario,estudiantes_id_estudiante,libros_id_libro) VALUES (".$fecha.",'".$bibliotecario."','".$estudiante."','".$titulo."')");
+        $sql=$mysql->efectuarConsulta("insert into biblioteca3.prestamos(fecha_prestamo,bibliotecario_id_bibliotecario,estudiantes_id_estudiante,libros_id_libro) VALUES ('".$fecha."','".$bibliotecario."','".$estudiante."','".$titulo."')");
 
        // $sql=$mysql->efectuarconsulta("insert into biblioteca3.estudiantes values ('','ndocuemnto','$nombre','$apellido','pass','documento','estado','programa')");
 
         //$cs=mysql_query($sql,$cn);
         //condiciones de redirecionamiento a las respectivas paginas
         if($sql){
-            echo "<script>alert('Se registro correctamente');</script>";
-            header("location: ../prestamo_Bibliotecario.php");
+            echo"<script type=\"text/javascript\">alert('Se registro correctamente!'); window.location='../prestamo_Bibliotecario.php';</script>";
+            /*echo "<script>alert('Se registro correctamente');</script>";
+            header("location: ../prestamo_Bibliotecario.php");*/
         }else{
-            echo "<script>alert('Se produjo un error');</script>";
-            //header("location: ../register_usuario.php");
+            echo"<script type=\"text/javascript\">alert('Se produjo un error'); window.location='../añadir_prestamo.php';</script>";
+            /*echo "<script>alert('Se produjo un error');</script>";*/
+            //header("location: ../añadir_prestamo.php");
         }
         
          

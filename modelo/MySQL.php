@@ -15,6 +15,15 @@
     //Metodo para conectar la base de datos
     public function conectar(){
         $this->conexion = mysqli_connect($this->ipServidor, $this->usuarioBase, $this->contrasena, $this->bd);
+
+    if($this->conexion)
+    {
+        //echo "conexion exitosa";
+
+    }else{
+        die('error de conexion (' . mysql_connect_errno() . ') '.mysql_connect_errno());
+    }
+    return($this->conexion);
     }
 
     public function conexionBD($nombreBD){

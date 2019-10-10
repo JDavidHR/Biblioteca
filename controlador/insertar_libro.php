@@ -20,10 +20,13 @@ if(isset($_POST['añadir']) && !empty($_POST['titulo']) && !empty($_POST['editor
         //$cs=mysql_query($sql,$cn);
         //condiciones de redirecionamiento a las respectivas paginas
         if($sql){
-            echo "<script>alert('Se registro correctamente');</script>";
-            header("location: ../inventario_Bibliotecario.php");
+            echo"<script type=\"text/javascript\">alert('Se registro correctamente!'); window.location='../inventario_Bibliotecario.php';</script>";
+
+            /*echo "<script>alert('Se registro correctamente');</script>";
+            header("location: ../inventario_Bibliotecario.php");*/
         }else{
-            echo "<script>alert('Se produjo un error');</script>";
+            echo"<script type=\"text/javascript\">alert('Se produjo un error'); window.location='../añadir_libro.php';</script>";
+            /*echo "<script>alert('Se produjo un error');</script>";*/
             //header("location: ../añadir_libro.php");
         }
         
