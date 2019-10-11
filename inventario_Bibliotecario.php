@@ -109,7 +109,7 @@
 
                               <a href="actualizar_libro.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Actualizar Libro</a>
 
-                              <a href="añadir_libro.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Añadir Libro</a>
+                              <a href="anadir_libro.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Añadir Libro</a>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">

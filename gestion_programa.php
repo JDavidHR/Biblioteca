@@ -105,7 +105,7 @@ $mysql->desconectar();
 
                               <a href="actualizar_programa.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Actualizar Programa</a>
 
-                               <a href="añadir_programa.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Añadir Programa</a>
+                               <a href="anadir_programa.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Añadir Programa</a>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
