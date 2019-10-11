@@ -48,6 +48,8 @@
     $seleccionprograma =$mysql->efectuarConsulta("SELECT biblioteca3.programa.id_programa,biblioteca3.programa.programa from programa");
     $seleccionestado =$mysql->efectuarConsulta("SELECT biblioteca3.estado_civil.id_estado, biblioteca3.estado_civil.estado from estado_civil");
 
+    
+
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>
     <div class="page-wrapper">
@@ -61,10 +63,10 @@
                             <form action="controlador/register_estudiante.php" method="post">
                                 <div class="form-group">
                                     <label>Nombre Completo</label>
-                                    <input class="au-input au-input--full" type="text" name="nombre" placeholder="Nombre">
+                                    <input class="au-input au-input--full" type="text" name="nombre" placeholder="Nombre" onkeypress="return soloLetras(event)">
                                 
                                     <label>Apellido Completo</label>
-                                    <input class="au-input au-input--full" type="text" name="apellido" placeholder="Apellido">
+                                    <input class="au-input au-input--full" type="text" name="apellido" placeholder="Apellido" onkeypress="return soloLetras(event)">
                                 
                                     <label>Contraseña</label>
                                     <input class="au-input au-input--full" type="text" name="contraseña" placeholder="Contraseña">
@@ -86,7 +88,7 @@
                                       </select>
 
                                     <label>Documento</label>
-                                    <input class="au-input au-input--full" type="text" name="documento" placeholder="Documento">
+                                    <input class="au-input au-input--full" type="text" name="documento" placeholder="Documento"  onkeypress="return soloNumeros(event)">
                                 
                                     <label>Estado Civil</label>
                                      <select name="estado_civil">
@@ -154,8 +156,10 @@
     <script src="vendor/select2/select2.min.js">
     </script>
 
+
     <!-- Main JS-->
     <script src="js/main.js"></script>
+    <script src="js/validaciones.js"></script>
 
 </body>
 

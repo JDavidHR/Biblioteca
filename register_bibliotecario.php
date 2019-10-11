@@ -61,16 +61,16 @@
                             <form action="controlador/register_bibliotecario_controlador.php" method="post">
                                 <div class="form-group">
                                     <label>Nombre Completo</label>
-                                    <input class="au-input au-input--full" type="text" name="nombreb" placeholder="Nombre">
+                                    <input class="au-input au-input--full" type="text" name="nombreb" placeholder="Nombre" onkeypress="return soloLetras(event)">
                                 
                                     <label>Apellido Completo</label>
-                                    <input class="au-input au-input--full" type="text" name="apellidob" placeholder="Apellido">
+                                    <input class="au-input au-input--full" type="text" name="apellidob" placeholder="Apellido" onkeypress="return soloLetras(event)">
                                 
                                     <label>Contraseña</label>
                                     <input class="au-input au-input--full" type="password" name="contraseñab" placeholder="Contraseña">
                                 
                                     <label>Documento</label>
-                                    <input class="au-input au-input--full" type="text" name="documentob" placeholder="Documento">
+                                    <input class="au-input au-input--full" type="text" name="documentob" placeholder="Documento" onkeypress="return soloNumeros(event)">
 
                                     <label>Tipo Documento</label>
                                     <select name="tipo_documentob">
@@ -135,6 +135,7 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+    <script src="js/validaciones.js"></script>
 
 </body>
 

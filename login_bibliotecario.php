@@ -50,7 +50,7 @@
                             <form action="controlador/controlador_login_bibliotecario.php" method="post">
                                 <div class="form-group">
                                     <label>Documento Bibliotecario</label>
-                                    <input class="au-input au-input--full" type="text" name="documento" placeholder="Numero Documento">
+                                    <input class="au-input au-input--full" type="text" name="documento" placeholder="Numero Documento"  onkeypress="return soloNumeros(event)">
                                 </div>
                                 <div class="form-group">
                                     <label>Contraseña</label>
@@ -92,7 +92,7 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-
+    <script src="js/validaciones.js"></script>
 </body>
 
 </html>
