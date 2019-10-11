@@ -66,7 +66,7 @@
                                 <br>
                                 
                                 <select name="seleccion_libro">
-                                     <option value="0" disabled="">Seleccione:</option>
+                                     <option value="0" disabled="" id="seleccion">Seleccione:</option>
                                         <?php
                                           //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
                                           while ($valores1 = mysqli_fetch_assoc($seleccionlibro)) {

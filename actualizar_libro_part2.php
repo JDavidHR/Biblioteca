@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+ require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
+
+    $mysql = new MySQL; //se crea un nuevo musql
+
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+
+
+$id = $_POST['seleccion_libro'];
+$mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.libros.titulo_libro, biblioteca3.libros.editorial, biblioteca3.libros.autor, biblioteca3.libros.fecha_publicacion FROM libros WHERE biblioteca3.libros.id_libro = ".$id."");
+
+ while ($valores1 = mysqli_fetch_assoc($mostrardatos)) {
+
+$titulo_libro = $valores1['titulo_libro'];
+$editorial = $valores1['editorial'];
+$autor = $valores1['autor'];
+$fecha = $valores1['fecha_publicacion'];
+
+    }
+$mysql->desconectar();
+?>
+
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -43,28 +65,28 @@
                     <div class="login-content">
 
                         <div class="login-form">
-                            <form action="inventario_Bibliotecario.php" method="post">
+                            <form action="controlador/update_libros.php" method="post">
                                 <div class="form-group">
+                                      
+                                        <input class="au-input au-input--full" type="hidden"  name="id" placeholder="Editorial" value="<?php echo $id ?>">
                                     <label>Titulo Libro</label>
-                                    <select class="au-input au-input--full">
-                                        <option>Cien años de soledad</option>
-                                        <option>El niño de pijama de rayas</option>
-                                        <option>Principito</option>
-                                        <option>Maria</option>
-                                    </select>
+
+                                    <input class="au-input au-input--full" type="text" name="titulo" placeholder="Titulo" value="<?php echo $titulo_libro ?>">
                                 
                                     <label>Editorial</label>
-                                    <input class="au-input au-input--full" type="text" name="editorial" placeholder="Editorial">
+                                    <input class="au-input au-input--full" type="text" name="editorial" placeholder="Editorial" value="<?php echo $editorial ?>">
                                 
                                     <label>Autor</label>
-                                    <input class="au-input au-input--full" type="text" name="autor" placeholder="Autor Libro">
+                                    <input class="au-input au-input--full" type="text" name="autor" placeholder="Autor Libro" value="<?php echo $autor ?>">
                                     
                                     <label>Fecha Publicacion</label>
-                                    <input type="date" name="fecha" class="au-input au-input--full">
+                                    <input type="date" name="fecha" class="au-input au-input--full"value="<?php echo $fecha ?>">
+
+
 
                                 </div>
 
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Actualizar Libro</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="actualizar_libro">Actualizar Libro</button>
                                 
                             </form>
                         </div>
