@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Actualizar Bibliotecario</title>
+    <title>Añadir Libro</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -36,50 +36,35 @@
 </head>
 
 <body class="animsition">
-     <?php //funcion php
-    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
-
-    $mysql = new MySQL; //se crea un nuevo musql
-
-    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
-    //ejecicion de las diferentes consultas
-    $seleccionbibliotecario =$mysql->efectuarConsulta("SELECT biblioteca3.bibliotecario.id_bibliotecario,biblioteca3.bibliotecario.nombre from bibliotecario");
-
-    $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
-    ?>
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
                 <div class="login-wrap">
                     <div class="login-content">
-                        <div class="login-logo">
-                            <a href="#">
-                                <h1 class="fas fa-book"  href="index_Bibliotecario.html"> Biblioteca</h1>
-                            </a>
-                        </div>
-                        <div class="login-form">
-                            <form action="actualizar_estudiante_part2.php" method="POST">
-                                <h1 align="center" class="au-input au-input--full">Bienvenido Bibliotecario</h1>
-                                <br>
-                                <center>
-                                <label>Seleccione el estudiante a actualizar</label>
-                                <br>
-                                <select name="seleccionestudiante">
-                                        <?php
-                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
-                                          while ($valores1 = mysqli_fetch_assoc($seleccionbibliotecario)) {
-                                            ?>
-                                            <!--se traen los datos a mostrar en el select-->
-                                            <option value=""><?php echo $valores1 ['nombre']?> 
-                                            </option>;
-                                            <?php
-                                          }
-                                        ?>
-                                </select>
-                                </center>
-                                <br><br>
-                                <button type="submit" name="actualizar" class="au-btn au-btn--block au-btn--green m-b-20">Actualizar Bibliotecario</button>
 
+                        <div class="login-form">
+                            <form action="inventario_Bibliotecario.php" method="post">
+                                <div class="form-group">
+                                    <label>Titulo</label>
+                                    <input class="au-input au-input--full" type="text" name="titulo" placeholder="Titulo Libro">
+                                
+                                    <label>Editorial</label>
+                                    <input class="au-input au-input--full" type="text" name="editorial" placeholder="Editorial">
+                                
+                                    <label>Autor</label>
+                                    <input class="au-input au-input--full" type="text" name="autor" placeholder="Autor">
+                                    
+                                    <label>Fecha Publicación</label>
+                                     <input class="au-input au-input--full" name="fecha" type="date">
+
+
+                                    
+                                    
+
+                                </div>
+
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Añadir Libro</button>
+                                
                             </form>
                         </div>
                     </div>

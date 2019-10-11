@@ -43,7 +43,7 @@
                     <div class="login-content">
 
                         <div class="login-form">
-                            <form action="inventario_Bibliotecario.php" method="post">
+                            <form action="controlador/insertar_prestamo.php" method="post">
                                 <div class="form-group">
                                     <label>Titulo</label>
                                     <input class="au-input au-input--full" type="text" name="titulo" placeholder="Titulo Libro">

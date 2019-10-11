@@ -67,7 +67,7 @@
                                     <input class="au-input au-input--full" type="text" name="apellidob" placeholder="Apellido">
                                 
                                     <label>Contraseña</label>
-                                    <input class="au-input au-input--full" type="text" name="contraseñab" placeholder="Contraseña">
+                                    <input class="au-input au-input--full" type="password" name="contraseñab" placeholder="Contraseña">
                                 
                                     <label>Documento</label>
                                     <input class="au-input au-input--full" type="text" name="documentob" placeholder="Documento">

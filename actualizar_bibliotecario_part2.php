@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Actualizar Estudiante</title>
+    <title>Actualizar Bibliotecario</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -44,8 +44,7 @@
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
     //ejecicion de las diferentes consultas
     $seleccionestado =$mysql->efectuarConsulta("SELECT biblioteca3.estado_civil.id_estado, biblioteca3.estado_civil.estado from estado_civil");
-    $selecciondocumento =$mysql->efectuarConsulta("SELECT biblioteca3.tipo_documento.id_tipo,biblioteca3.tipo_documento.tipo from tipo_documento");
-    $seleccionprograma =$mysql->efectuarConsulta("SELECT biblioteca3.programa.id_programa,biblioteca3.programa.programa from programa");
+     $selecciondocumento =$mysql->efectuarConsulta("SELECT biblioteca3.tipo_documento.id_tipo,biblioteca3.tipo_documento.tipo from tipo_documento");
 
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>
@@ -100,24 +99,10 @@
                                         ?>
 
                                       </select>
-                                    <label>Programa</label>
 
-                                    <select name="programa">
-                                        <option value="0">Seleccione:</option>
-                                        <?php
-                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
-                                          while ($valores = mysqli_fetch_assoc($seleccionprograma)) {
-                                            ?>
-                                            <!--se traen los datos a mostrar en el select-->
-                                            <option value="<?php echo $valores['id_programa']?>"><?php echo $valores['programa']?></option>';
-                                            <?php
-                                          }
-                                        ?>
-                                        
-                                      </select>
                                 </div>
 
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Actualizar Estudiante</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Actualizar Bibliotecario</button>
                                 
                             </form>
                         </div>

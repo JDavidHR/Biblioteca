@@ -1,23 +1,4 @@
 <!DOCTYPE html>
-<?php
-$servidor='localhost';
-$usuario='root';
-$contrasenha='';
-$BD='biblioteca3';
-
-$conexion=mysqli_connect($servidor,$usuario,$contrasenha,$BD);
-if(!$conexion){
-        die('<strong> no puede conectarse con la BD:</stong>'.mysql_error());
-    }else{
-        $base=mysqli_select_db ($conexion,$BD);
-        if(!$base){
-            echo "conectado a la base de datos";
-        }
-    }
-
-$alumnos="SELECT * FROM libros";
-$resAlumnos=$conexion->query($alumnos);
-?>
 <html lang="en">
 
 <head>
@@ -55,90 +36,39 @@ $resAlumnos=$conexion->query($alumnos);
 </head>
 
 <body class="animsition">
+     <?php
+
+    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
+
+    $mysql = new MySQL; //se crea un nuevo musql
+
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+
+
+   
+$seleccionlibro =$mysql->efectuarConsulta("SELECT biblioteca3.libros.id_libro,biblioteca3.libros.titulo_libro,biblioteca3.libros.editorial,biblioteca3.libros.autor, biblioteca3.libros.fecha_publicacion
+from libros
+join estudiantes");
+   
+$mysql->desconectar();
+
+?>
     <div class="page-wrapper">
 
 
         <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="#">
-                    <h1 class="fas fa-book"  href="index_Bibliotecario.html"> Biblioteca</h1>
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-home"></i>Contenido</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="index_Usuario.php">Libros</a>
-                                </li>
-                                <li>
-                                    <a href="prestamo_Usuario.php">Prestamos</a>
-                                </li>
-                            </ul>
-                        </li>
- 
-                    </ul>
-                </nav>
-            </div>
-        </aside>
+         <?php
+          include("header_usuario_menu_cierre.php");
+          ?>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                           
-
-
-                            <form class="form-header" action="" method="POST">
-                                <!--barra de busqueda-->
-    
-                            </form>
-
-
-
-                            <div class="header-button ">
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                       
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#">Usuario</a> <!--nombre de la BD invocar-->
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                               
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">Usuario</a>
-                                                    </h5>
-                                                    <span class="email">Usuario@cotecnova.com</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Configuración</a>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="login.php">
-                                                    <i class="zmdi zmdi-power"></i>Cerrar Sesion</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <?php
+          include("header_usuario_menu_lateral_usuario.php");
+          ?>
             </header>
             <!-- HEADER DESKTOP-->
 
@@ -164,56 +94,19 @@ $resAlumnos=$conexion->query($alumnos);
                                         </thead>
 
                                         <tbody>
-                                            <?php
-                                            while ($registroAlumnos = $resAlumnos->fetch_array(MYSQLI_BOTH)){
-
-                                                        echo '<tr>
-                                                        <td>'.$registroAlumnos['id_libro'].'</td>
-                                                        <td>'.$registroAlumnos['titulo_libro'].'</td>
-                                                        <td>'.$registroAlumnos['editorial'].'</td>
-                                                        <td>'.$registroAlumnos['autor'].'</td>
-                                                        <td>'.$registroAlumnos['fecha_publicacion'].'</td>
-                                                        <tr>';
-                                                }
-                                            ?>
+                                          <?php
+                                           while ($resultado=mysqli_fetch_assoc($seleccionlibro)) {
+                                                echo '<tr>
+                                                <td>'.$id=$resultado['id_libro'].'</td>
+                                                <td>'.$titulo=$resultado['titulo_libro'].'</td>
+                                                <td>'.$editorial=$resultado['editorial'].'</td>
+                                                <td>'.$autor=$resultado['autor'].'</td>
+                                                <td>'.$fecha=$resultado['fecha_publicacion'].'</td>
+                                                <tr>';
+                                            }
+                                        ?>
                                         </tbody>
-                                        <!--
-                                        <tbody>
-                                            <tr>
-                                                <td>01</td>
-                                                <td>Cien años de soledad</td>
-                                                <td>Planeta</td>
-                                                <td >Gabriel Garcia Marquez</td>
-                                                <td >1997</td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>02</td>
-                                                <td>Principito</td>
-                                                <td>Editions Gallimard</td>
-                                                <td >Antonie de Saint</td>
-                                                <td >1994</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>03</td>
-                                                <td>Niño con el pijama de rayas</td>
-                                                <td>David Fickling Books</td>
-                                                <td >Jhon Boyne</td>
-                                                <td >1942</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>04</td>
-                                                <td>Maria</td>
-                                                <td>NA</td>
-                                                <td >Jorge Isaacs</td>
-                                                <td >1867</td>
-
-                                            </tr>
-                                            
-                                            
-                                        </tbody>-->
                                     </table>
                                 </div>
                             </div>

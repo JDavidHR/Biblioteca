@@ -36,99 +36,45 @@
 </head>
 
 <body class="animsition">
+    <?php
+
+    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
+
+    $mysql = new MySQL; //se crea un nuevo musql
+
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+
+
+   
+$seleccionprestamo =$mysql->efectuarConsulta("SELECT biblioteca3.prestamos.id_prestamo,biblioteca3.prestamos.fecha_prestamo,biblioteca3.estudiantes.nombre as nombreestudiante ,biblioteca3.libros.titulo_libro, biblioteca3.bibliotecario.nombre as nombrebibliotecario
+from prestamos 
+join estudiantes 
+on biblioteca3.estudiantes.id_estudiante = biblioteca3.prestamos.estudiantes_id_estudiante 
+join libros 
+on biblioteca3.libros.id_libro = biblioteca3.prestamos.libros_id_libro  
+join bibliotecario 
+on biblioteca3.bibliotecario.id_bibliotecario = biblioteca3.prestamos.bibliotecario_id_bibliotecario");
+   
+$mysql->desconectar();
+
+?>
     <div class="page-wrapper">
 
 
         <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="#">
-                    <h1 class="fas fa-book"  href="index_Bibliotecario.html"> Biblioteca</h1>
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-home"></i>Inicio</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="inventario_Bibliotecario.php">Gestionar Inventario</a>
-                                </li>
-                                <li>
-                                    <a href="prestamo_Bibliotecario.php">Gestionar Prestamos</a>
-                                </li>
-                                <li>
-                                    <a href="Gestion_estudiantes.php">Gestionar Estudiantes</a>
-                                </li>
-                                <li>
-                                    <a href="gestion_Bibliotecarios.php">Gestionar Bibliotecarios</a>
-                                </li>
-                                <li>
-                                    <a href="creditos.php">Creditos</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </nav>
-            </div>
-        </aside>
+                  <?php
+                    include("header_usuario_menu_lateral_bibliotecario.php");
+          ?>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                           
+<?php
 
-
-                            <form class="form-header" action="" method="POST">
-                                <!--barra de busqueda-->
-    
-                            </form>
-
-
-
-                            <div class="header-button ">
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                       
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#">Bibliotecario</a> <!--nombre de la BD invocar-->
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                               
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">Bibliotecario</a>
-                                                    </h5>
-                                                    <span class="email">Bibliotecario@cotecnova.com</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Configuración</a>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="login.php">
-                                                    <i class="zmdi zmdi-power"></i>Cerrar Sesion</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          include("header_usuario_menu_cierre_bibliotecario.php");
+          ?>
             </header>
             <!-- HEADER DESKTOP-->
 
@@ -146,27 +92,23 @@
                                                 <th>ID</th>
                                                 <th>Fecha</th>
                                                 <th>Estudiante</th>
-                                                <th>Libro</th>
-                                                <th>Bibliotecario</th>
+                                                <th >Libro</th>
+                                                <th >Bibliotecario</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>01</td>
-                                                <td>2019-08-01</td>
-                                                <td>Juan David</td>
-                                                <td >Cien años de soledad</td>
-                                                <td >Samuel</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>02</td>
-                                                <td>2018-06-07</td>
-                                                <td>Juan David</td>
-                                                <td>Principito</td>
-                                                <td >Samuel</td>
-
-                                            </tr>
+                                          <?php
+                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                           while ($resultado=mysqli_fetch_assoc($seleccionprestamo)) {
+                                                echo '<tr>
+                                                <td>'.$id_prestamo=$resultado['id_prestamo'].'</td>
+                                                <td>'.$fecha_prestamo=$resultado['fecha_prestamo'].'</td>
+                                                <td>'.$estudiantes_id_estudiante=$resultado['nombreestudiante'].'</td>
+                                                <td>'.$libros_id_libro=$resultado['titulo_libro'].'</td>
+                                                <td>'.$bibliotecario_id_bibliotecario=$resultado['nombrebibliotecario'].'</td>
+                                                <tr>';
+                                            }
+                                        ?>
                                            
                                         </tbody>
                                     </table>

@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <?php
-$servidor='localhost';
-$usuario='root';
-$contrasenha='';
-$BD='biblioteca3';
 
-$conexion=mysqli_connect($servidor,$usuario,$contrasenha,$BD);
-if(!$conexion){
-        die('<strong> no puede conectarse con la BD:</stong>'.mysql_error());
-    }else{
-        $base=mysqli_select_db ($conexion,$BD);
-        if(!$base){
-            echo "conectado a la base de datos";
-        }
-    }
+    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
-$bibliotecario="SELECT * FROM libros";
-$resbibliotecario=$conexion->query($bibliotecario);
+    $mysql = new MySQL; //se crea un nuevo musql
+
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+
+
+    $seleccionlibro =$mysql->efectuarConsulta("SELECT * FROM libros");
+
 ?>
 <html lang="es">
 
@@ -59,100 +52,19 @@ $resbibliotecario=$conexion->query($bibliotecario);
 
 
         <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
-            
-            <div class="logo">
-                <a href="#">
-                    <h1 class="fas fa-book"  href="index_Bibliotecario.php"> Biblioteca</h1>
-                </a>
-            </div>
-            
-            
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-home"></i>Inicio</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="inventario_Bibliotecario.php">Gestionar Inventario</a>
-                                </li>
-                                <li>
-                                    <a href="prestamo_Bibliotecario.php">Gestionar Prestamos</a>
-                                </li>
-                                <li>
-                                    <a href="gestion_estudiantes.php">Gestionar Estudiantes</a>
-                                </li>
-                                <li>
-                                    <a href="gestion_Bibliotecarios.php">Gestionar Bibliotecarios</a>
-                                </li>
-                                <li>
-                                    <a href="gestion_programa.php">Gestionar Programa</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </nav>
-            </div>
-            
-        </aside>
+       <?php
+                    include("header_usuario_menu_lateral_bibliotecario.php");
+          ?>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                           
+ <?php
 
-
-                            <form class="form-header" action="" method="POST">
-                                <!--barra de busqueda-->
-    
-                            </form>
-
-
-                            
-                            <div class="header-button ">
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                       
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#">Bibliotecario</a> <!--nombre de la BD invocar-->
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                               
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">Bibliotecario</a>
-                                                    </h5>
-                                                    <span class="email">Bibliotecario@cotecnova.com</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Configuración</a>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="login.php">
-                                                    <i class="zmdi zmdi-power"></i>Cerrar Sesion</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
+          include("header_usuario_menu_cierre_bibliotecario.php");
+          ?>  
             </header>
             <!-- HEADER DESKTOP-->
 
@@ -175,55 +87,21 @@ $resbibliotecario=$conexion->query($bibliotecario);
                                             </tr>
                                         </thead>
                                          <tbody>
-                                            <?php
-                                            while ($registrobibliotecario = $resbibliotecario->fetch_array(MYSQLI_BOTH)){
-
+                                          <?php
+                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                          while ($valores2 = mysqli_fetch_assoc($seleccionlibro)) {
+                                            
+                                            //se traen los datos a mostrar 
                                                         echo '<tr>
-                                                        <td>'.$registrobibliotecario['id_libro'].'</td>
-                                                        <td>'.$registrobibliotecario['titulo_libro'].'</td>
-                                                        <td>'.$registrobibliotecario['editorial'].'</td>
-                                                        <td>'.$registrobibliotecario['autor'].'</td>
-                                                        <td>'.$registrobibliotecario['fecha_publicacion'].'</td>
-                                                        <tr>';
-                                                }
-                                            ?>
+                                                        <td>'.$valores2['id_libro'].'</td>
+                                                        <td>'.$valores2['titulo_libro'].'</td>
+                                                        <td>'.$valores2['editorial'].'</td>
+                                                        <td>'.$valores2['autor'].'</td>
+                                                        <td>'.$valores2['fecha_publicacion'].'</td>
+                                                        <tr>'; 
+                                          }
+                                        ?>
                                         </tbody>
-                                        <!--<tbody>
-                                            <tr>
-                                                <td>01</td>
-                                                <td>Cien años de soledad</td>
-                                                <td>Planeta</td>
-                                                <td >Gabriel Garcia Marquez</td>
-                                                <td >1997</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>02</td>
-                                                <td>Principito</td>
-                                                <td>Editions Gallimard</td>
-                                                <td >Antonie de Saint</td>
-                                                <td >1994</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>03</td>
-                                                <td>Niño con el pijama de rayas</td>
-                                                <td>David Fickling Books</td>
-                                                <td >Jhon Boyne</td>
-                                                <td >1942</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>04</td>
-                                                <td>Maria</td>
-                                                <td>NA</td>
-                                                <td >Jorge Isaacs</td>
-                                                <td >1867</td>
-
-                                            </tr>
-                                            
-                                            
-                                        </tbody>-->
                                     </table>
                                 </div>
                             </div>
