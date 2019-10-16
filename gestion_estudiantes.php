@@ -54,7 +54,7 @@ on biblioteca3.estudiantes.id_estudiante = biblioteca3.prestamos.estudiantes_id_
 join programa 
 on biblioteca3.programa.id_programa = biblioteca3.estudiantes.programa_id_programa
 join libros
-on biblioteca3.libros.id_libro = biblioteca3.prestamos.libros_id_libro");
+on biblioteca3.libros.id_libro = biblioteca3.prestamos.libros_id_libro where estado =1");
 
 
    
