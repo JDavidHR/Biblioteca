@@ -1,6 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> 
+<html lang="en"> 
+<?php
+ require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
+    $mysql = new MySQL; //se crea un nuevo musql
+
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+
+//declaracion de variables metodo post
+$id = $_POST['seleccion_programa'];
+$mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.programa.programa FROM programa WHERE biblioteca3.programa.id_programa = ".$id."");
+//se inicia el recorrido para mostrar los datos de la BD
+ while ($valores1 = mysqli_fetch_assoc($mostrardatos)) {
+//declaracion de variables
+$programa = $valores1['programa'];
+
+    }
+$mysql->desconectar();//funcion llamada desde mysql.php
+?>
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -43,14 +60,15 @@
                     <div class="login-content">
 
                         <div class="login-form">
-                            <form action="controlador/actualizar_programas.php" method="post">
+                            <form action="controlador/update_programa.php" method="post">
                                 <div class="form-group">
                                     <label>Programa</label>
-                                    <input class="au-input au-input--full" type="text" name="programa" placeholder="Ingrese Un Programa">
+                                     <input class="au-input au-input--full" type="hidden"  name="id" placeholder="ID" value="<?php echo $id ?>">
+                                    <input class="au-input au-input--full" type="text" name="programa" placeholder="Programa" value="<?php echo $programa ?>">
                                                                                                                                 
                                 </div>
 
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="añadir">Actualizar Programa</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="actualizar">Actualizar Programa</button>
                                 
                             </form>
                         </div>

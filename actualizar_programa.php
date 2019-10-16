@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> 
+<html lang="en"> 
 
 <head>
     <!-- Required meta tags-->
@@ -36,6 +36,16 @@
 </head>
 
 <body class="animsition">
+     <?php 
+        //funcion php
+        require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
+        $mysql = new MySQL; //se crea un nuevo musql
+        $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+        //ejecicion de las diferentes consultas
+        $seleccionprograma =$mysql->efectuarConsulta("SELECT biblioteca3.programa.id_programa,biblioteca3.programa.programa from programa");
+
+        $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
+      ?>
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -50,8 +60,19 @@
                             <form action="actualizar_programa_part2.php" method="POST">
                                 <h1 align="center" class="au-input au-input--full">Bienvenido Bibliotecario</h1>
                                 <br>
-                                <label>ingrese el ID del programa a actualizar</label>
-                                <input class="au-input au-input--full" type="text" name="ID_programa" placeholder="ID programa">
+                                <label>Seleccione el programa a actualizar</label>
+                                <select name="seleccion_programa">
+                                     <option value="0" disabled="" id="seleccion">Seleccione:</option>
+                                        <?php
+                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                          while ($valores1 = mysqli_fetch_assoc($seleccionprograma)) {
+                                            ?>
+                                            <!--se traen los datos a mostrar en el select-->
+                                            <option value="<?php echo $valores1['id_programa']?>"><?php echo $valores1['programa']?></option>';
+                                            <?php
+                                          }
+                                        ?>
+                                </select>
                                 <br><br>
                                 <button type="submit" name="actualizar" class="au-btn au-btn--block au-btn--green m-b-20">Actualizar programa</button>
 
