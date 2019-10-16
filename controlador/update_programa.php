@@ -19,7 +19,7 @@ if(isset($_POST['actualizar']) && !empty($_POST['programa'])){
             echo"<script type=\"text/javascript\">alert('Se actualizo correctamente!'); window.location='../gestion_programa.php';</script>";
         }else{
             //mensaje de salida en caso de que la consulta falle con su respectiva redireccion de pagina
-            //echo"<script type=\"text/javascript\">alert('Se produjo un error!'); window.location='../actualizar_programa.php';</script>";
+            echo"<script type=\"text/javascript\">alert('Se produjo un error!'); window.location='../actualizar_programa.php';</script>";
         } 
         
          
