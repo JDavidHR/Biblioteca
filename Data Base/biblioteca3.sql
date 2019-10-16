@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- version 4.4.14
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2019 a las 04:10:12
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.4
+-- Tiempo de generación: 16-10-2019 a las 15:01:27
+-- Versión del servidor: 5.6.26
+-- Versión de PHP: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,7 +26,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `bibliotecario`
 --
 
-CREATE TABLE `bibliotecario` (
+CREATE TABLE IF NOT EXISTS `bibliotecario` (
   `id_bibliotecario` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
@@ -37,7 +35,7 @@ CREATE TABLE `bibliotecario` (
   `estado_civil_id_estado` int(11) NOT NULL,
   `tipo_documento_id_tipo` int(11) NOT NULL,
   `estado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `bibliotecario`
@@ -54,10 +52,10 @@ INSERT INTO `bibliotecario` (`id_bibliotecario`, `nombre`, `apellido`, `numero_d
 -- Estructura de tabla para la tabla `estado_civil`
 --
 
-CREATE TABLE `estado_civil` (
+CREATE TABLE IF NOT EXISTS `estado_civil` (
   `id_estado` int(11) NOT NULL,
   `estado` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `estado_civil`
@@ -80,7 +78,7 @@ INSERT INTO `estado_civil` (`id_estado`, `estado`) VALUES
 -- Estructura de tabla para la tabla `estudiantes`
 --
 
-CREATE TABLE `estudiantes` (
+CREATE TABLE IF NOT EXISTS `estudiantes` (
   `id_estudiante` int(10) NOT NULL,
   `numero_documento` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
@@ -90,7 +88,7 @@ CREATE TABLE `estudiantes` (
   `estado_civil_id_estado` int(11) NOT NULL,
   `programa_id_programa` int(11) NOT NULL,
   `estado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `estudiantes`
@@ -107,14 +105,14 @@ INSERT INTO `estudiantes` (`id_estudiante`, `numero_documento`, `nombre`, `apell
 -- Estructura de tabla para la tabla `libros`
 --
 
-CREATE TABLE `libros` (
+CREATE TABLE IF NOT EXISTS `libros` (
   `id_libro` int(11) NOT NULL,
   `titulo_libro` varchar(45) NOT NULL,
   `editorial` varchar(45) NOT NULL,
   `autor` varchar(45) NOT NULL,
   `fecha_publicacion` date NOT NULL,
   `estado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `libros`
@@ -129,21 +127,20 @@ INSERT INTO `libros` (`id_libro`, `titulo_libro`, `editorial`, `autor`, `fecha_p
 -- Estructura de tabla para la tabla `prestamos`
 --
 
-CREATE TABLE `prestamos` (
+CREATE TABLE IF NOT EXISTS `prestamos` (
   `id_prestamo` int(11) NOT NULL,
   `fecha_prestamo` datetime NOT NULL,
   `bibliotecario_id_bibliotecario` int(11) NOT NULL,
   `estudiantes_id_estudiante` int(10) NOT NULL,
-  `libros_id_libro` int(11) NOT NULL,
-  `estado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `libros_id_libro` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `prestamos`
 --
 
-INSERT INTO `prestamos` (`id_prestamo`, `fecha_prestamo`, `bibliotecario_id_bibliotecario`, `estudiantes_id_estudiante`, `libros_id_libro`, `estado`) VALUES
-(1, '2019-10-16 03:14:11', 2, 1, 1, 1);
+INSERT INTO `prestamos` (`id_prestamo`, `fecha_prestamo`, `bibliotecario_id_bibliotecario`, `estudiantes_id_estudiante`, `libros_id_libro`) VALUES
+(1, '0000-00-00 00:00:00', 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -151,11 +148,11 @@ INSERT INTO `prestamos` (`id_prestamo`, `fecha_prestamo`, `bibliotecario_id_bibl
 -- Estructura de tabla para la tabla `programa`
 --
 
-CREATE TABLE `programa` (
+CREATE TABLE IF NOT EXISTS `programa` (
   `id_programa` int(11) NOT NULL,
   `programa` varchar(45) NOT NULL,
   `estado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `programa`
@@ -178,8 +175,7 @@ INSERT INTO `programa` (`id_programa`, `programa`, `estado`) VALUES
 (14, 'Licenciatura en Pedagogía Infantil', 1),
 (15, 'Cursos de Ingles y Trances', 1),
 (16, 'Licenciatura en Ingles ', 1),
-(17, 'Licenciatura en Francés ', 0),
-(18, 'hola', 1);
+(17, 'Licenciatura en Francés ', 1);
 
 -- --------------------------------------------------------
 
@@ -187,10 +183,10 @@ INSERT INTO `programa` (`id_programa`, `programa`, `estado`) VALUES
 -- Estructura de tabla para la tabla `tipo_documento`
 --
 
-CREATE TABLE `tipo_documento` (
+CREATE TABLE IF NOT EXISTS `tipo_documento` (
   `id_tipo` int(11) NOT NULL,
   `tipo` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tipo_documento`
@@ -262,44 +258,37 @@ ALTER TABLE `tipo_documento`
 -- AUTO_INCREMENT de la tabla `bibliotecario`
 --
 ALTER TABLE `bibliotecario`
-  MODIFY `id_bibliotecario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id_bibliotecario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `estado_civil`
 --
 ALTER TABLE `estado_civil`
-  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `id_estudiante` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id_estudiante` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `programa`
 --
 ALTER TABLE `programa`
-  MODIFY `id_programa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
+  MODIFY `id_programa` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `tipo_documento`
 --
 ALTER TABLE `tipo_documento`
-  MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
@@ -326,7 +315,6 @@ ALTER TABLE `prestamos`
   ADD CONSTRAINT `fk_prestamos_bibliotecario1` FOREIGN KEY (`bibliotecario_id_bibliotecario`) REFERENCES `bibliotecario` (`id_bibliotecario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_prestamos_estudiantes1` FOREIGN KEY (`estudiantes_id_estudiante`) REFERENCES `estudiantes` (`id_estudiante`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_prestamos_libros1` FOREIGN KEY (`libros_id_libro`) REFERENCES `libros` (`id_libro`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
