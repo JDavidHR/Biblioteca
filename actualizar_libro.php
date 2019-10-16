@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <!-- Required meta tags-->
+    <!-- metas requeridos-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
 
-    <!-- Title Page-->
+    <!-- titulo de pagina-->
     <title>Actualizar Libro</title>
 
     <!-- Fontfaces CSS-->
@@ -34,9 +34,10 @@
     <link href="css/theme.css" rel="stylesheet" media="all">
 
 </head>
-
+<!--cuerpo de la pagina-->
 <body class="animsition">
-     <?php //funcion php
+     <?php 
+     //funcion php
     require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
     $mysql = new MySQL; //se crea un nuevo musql
@@ -54,17 +55,19 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <h1 class="fas fa-book"  href="index_Bibliotecario.html"> Biblioteca</h1>
+                                <h1 class="fas fa-book"  href="index_Bibliotecario.php"> Biblioteca</h1>
                             </a>
                         </div>
                         <div class="login-form">
+                            <!--formulario-->
                             <form action="actualizar_libro_part2.php" method="POST">
                                 <h1 align="center" class="au-input au-input--full">Bienvenido Bibliotecario</h1>
                                 <br>
+                                <!--etiqueta para centrar todo lo que hay dentro de ella-->
                                 <center>
                                 <label>Seleccione el libro a actualizar</label>
                                 <br>
-                                
+                                <!--select donde se utiliza el php para mostrar los datos de la bd dentro del select-->
                                 <select name="seleccion_libro">
                                      <option value="0" disabled="" id="seleccion">Seleccione:</option>
                                         <?php
@@ -77,11 +80,12 @@
                                           }
                                         ?>
                                 </select>
-                                </center>
+                                </center><!--fin etiqueta center-->
                                 <br><br>
+                                <!--boton-->
                                 <button type="submit" name="actualizar" class="au-btn au-btn--block au-btn--green m-b-20">Actualizar Libro</button>
 
-                            </form>
+                            </form><!--fin formulario-->
                         </div>
                     </div>
                 </div>

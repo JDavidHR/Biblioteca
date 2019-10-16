@@ -35,12 +35,13 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo de la pagina-->
     <div class="page-wrapper">
 
 
         <!-- MENU SIDEBAR-->
-          <?php
+          <?php 
+          //funcion php donde se encuentra el menu lateral del bibliotecario
                     include("header_usuario_menu_lateral_bibliotecario.php");
           ?>
         <!-- END MENU SIDEBAR-->
@@ -50,6 +51,7 @@
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
           <?php
+          //funcion php donde se encuentra el menu superior del bibliotecario
 
           include("header_usuario_menu_cierre_bibliotecario.php");
           ?>    
@@ -61,7 +63,7 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12"><!--informacion mostrada en la pagina del bibliotecario-->
                                 <h2 align="center">Bienvenido Bibliotecario</h2>
                                 <br>
                                 <p align="center">Recuerda que puedes modificar lo siguiente:</p>
@@ -80,6 +82,7 @@
                             <div class="col-md-12">
                                 <div class="copyright">
                                    <?php
+                                   //funcion php donde se llama al footer de la pagina
                                     include("footer.php");
                                    ?>
                                 </div>
@@ -108,7 +111,7 @@
     </script>
     <!-- Main JS-->
     <script src="js/main.js"></script>
-</body>
+</body><!--fin cuerpo de la pagina-->
 
 </html>
 <!-- end document-->

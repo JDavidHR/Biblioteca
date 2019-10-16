@@ -35,8 +35,9 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo de la pagina-->
     <?php
+    //funcion php 
 
     require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
@@ -45,7 +46,7 @@
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
 
 
-   
+//coansulta y funcion almacenados dentro de la variables declarada 
 $seleccionprestamo =$mysql->efectuarConsulta("SELECT biblioteca3.prestamos.id_prestamo,biblioteca3.prestamos.fecha_prestamo,biblioteca3.estudiantes.nombre as nombreestudiante ,biblioteca3.libros.titulo_libro, biblioteca3.bibliotecario.nombre as nombrebibliotecario
 from prestamos 
 join estudiantes 
@@ -56,23 +57,25 @@ join bibliotecario
 on biblioteca3.bibliotecario.id_bibliotecario = biblioteca3.prestamos.bibliotecario_id_bibliotecario");
    
 $mysql->desconectar();
+//funcion del mysql.php
 
 ?>
     <div class="page-wrapper">
 
 
         <!-- MENU SIDEBAR-->
-                  <?php
-                    include("header_usuario_menu_lateral_bibliotecario.php");
-          ?>
+            <?php
+            //funcion pho donde se llama al  menu lateral del bibliotecario
+            include("header_usuario_menu_lateral_bibliotecario.php");
+            ?>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
-<?php
-
+        <?php
+        //funcion php donde se llama el menu superior del bibliotecario
           include("header_usuario_menu_cierre_bibliotecario.php");
           ?>
             </header>
@@ -86,8 +89,9 @@ $mysql->desconectar();
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
+                                    <!--creacion de la tabla-->
                                     <table class="table table-borderless table-striped table-earning">
-                                        <thead>
+                                        <thead><!--cabecera de la tabla-->
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Fecha</th>
@@ -95,10 +99,11 @@ $mysql->desconectar();
                                                 <th >Libro</th>
                                                 <th >Bibliotecario</th>
                                             </tr>
-                                        </thead>
-                                        <tbody>
+                                        </thead><!--fin cabecera de la pagina-->
+                                        <tbody><!--cuerpo de la tabla-->
                                           <?php
-                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                          //funcion php
+                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos
                                            while ($resultado=mysqli_fetch_assoc($seleccionprestamo)) {
                                                 echo '<tr>
                                                 <td>'.$id_prestamo=$resultado['id_prestamo'].'</td>
@@ -110,10 +115,11 @@ $mysql->desconectar();
                                             }
                                         ?>
                                            
-                                        </tbody>
+                                        </tbody><!--fin cuerpo de la tabla-->
                                     </table>
                                 </div>
                             </div>
+                            <!--creacion de etiquetas con funcion de boton para redireccionar a las diferentes paginas-->
                             <a href="eliminar_prestamo.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Eliminar Prestamo</a>
                             <a href="realizar_prestamo_part2.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Añadir Prestamo</a>
                             <a href="actualizar_prestamo.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Actualizar Prestamo</a>
@@ -121,6 +127,7 @@ $mysql->desconectar();
                             <div class="col-md-12">
                                 <div class="copyright">
                                     <?php
+                                    //funicon php donde se llama al footer de la pagina
                                     include("footer.php");
                                     ?>
                                 </div>
@@ -147,7 +154,7 @@ $mysql->desconectar();
     </script>
     <!-- Main JS-->
     <script src="js/main.js"></script>
-</body>
+</body><!--fin cuerpo de la pagina-->
 
 </html>
 <!-- end document-->

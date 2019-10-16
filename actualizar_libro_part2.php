@@ -8,19 +8,19 @@
 
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
 
-
+//declaracion de variables metodo post
 $id = $_POST['seleccion_libro'];
 $mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.libros.titulo_libro, biblioteca3.libros.editorial, biblioteca3.libros.autor, biblioteca3.libros.fecha_publicacion FROM libros WHERE biblioteca3.libros.id_libro = ".$id."");
-
+//se inicia el recorrido para mostrar los datos de la BD
  while ($valores1 = mysqli_fetch_assoc($mostrardatos)) {
-
+//declaracion de variables
 $titulo_libro = $valores1['titulo_libro'];
 $editorial = $valores1['editorial'];
 $autor = $valores1['autor'];
 $fecha = $valores1['fecha_publicacion'];
 
     }
-$mysql->desconectar();
+$mysql->desconectar();//funcion llamada desde mysql.php
 ?>
 
 <head>
@@ -56,7 +56,7 @@ $mysql->desconectar();
     <link href="css/theme.css" rel="stylesheet" media="all">
 
 </head>
-
+<!--cuerpo de la pagina-->
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-content--bge5">
@@ -65,9 +65,10 @@ $mysql->desconectar();
                     <div class="login-content">
 
                         <div class="login-form">
+                            <!--formulario-->
                             <form action="controlador/update_libros.php" method="post">
                                 <div class="form-group">
-                                      
+                                      <!--creacion de inputs, donde en cada uno se muestran los datos de la base de datos (ejemplo input nombre se mostrara el nombre que tiene actualmente el libro seleccionado)-->
                                         <input class="au-input au-input--full" type="hidden"  name="id" placeholder="Editorial" value="<?php echo $id ?>">
                                     <label>Titulo Libro</label>
 
@@ -85,10 +86,10 @@ $mysql->desconectar();
 
 
                                 </div>
-
+                                <!--boton-->
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="actualizar_libro">Actualizar Libro</button>
                                 
-                            </form>
+                            </form><!--fin formulario-->
                         </div>
                     </div>
                 </div>

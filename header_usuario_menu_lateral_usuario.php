@@ -1,4 +1,5 @@
                 <div class="section__content section__content--p30">
+                    <!--menu superior del usuario, todo lo que se modifique aqui se aplicara en las demas paginas ya que estas lo invocaran con el metodo include-->
                     <div class="container-fluid">
                         <div class="header-wrap">
                            
@@ -14,7 +15,7 @@
                             <div class="header-button ">
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
-                                       
+                                       <!--opciones del menu-->
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">Usuario</a> <!--nombre de la BD invocar-->
                                         </div>
@@ -36,7 +37,7 @@
                                                 
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="controlador/logout.php">
+                                                <a href="controlador/logout.php"><!--controlador donde se destruye la sesion-->
                                                     <i class="zmdi zmdi-power"></i>Cerrar Sesion</a>
                                             </div>
                                         </div>

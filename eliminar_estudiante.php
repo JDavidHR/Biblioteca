@@ -36,6 +36,18 @@
 </head>
 
 <body class="animsition">
+     <?php 
+     //funcion php
+    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
+
+    $mysql = new MySQL; //se crea un nuevo musql
+
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+    //ejecicion de las diferentes consultas
+    $seleccionestudiante =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.id_estudiante,biblioteca3.estudiantes.nombre from estudiantes");
+
+    $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
+    ?>
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -47,11 +59,25 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="gestion_estudiantes.php" method="POST">
+                            <form action="controlador/delete_estudiante.php" method="POST">
                                 <h1 align="center" class="au-input au-input--full">Bienvenido Bibliotecario</h1>
                                 <br>
-                                <label>ingrese el numero de documento del estudiante a eliminar</label>
-                                <input class="au-input au-input--full" type="text" name="doc_estudiante" placeholder="Documento Estudiante">
+                                <center>
+                                <label>Seleccione el estudiante a eliminar</label>
+                                <br>
+                                <select name="seleccion_estudiante">
+                                     <option value="0" disabled="" id="seleccion">Seleccione:</option>
+                                        <?php
+                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                          while ($valores1 = mysqli_fetch_assoc($seleccionestudiante)) {
+                                            ?>
+                                            <!--se traen los datos a mostrar en el select-->
+                                            <option value="<?php echo $valores1['id_estudiante']?>"><?php echo $valores1['nombre']?></option>';
+                                            <?php
+                                          }
+                                        ?>
+                                </select>
+                                </center>
                                 <br><br>
                                 <button type="submit" name="eliminar" class="au-btn au-btn--block au-btn--green m-b-20">Eliminar Estudiante</button>
 

@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Eliminar Programa</title>
+    <title>Eliminar Estudiante</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -44,7 +44,7 @@
 
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
     //ejecicion de las diferentes consultas
-    $seleccioneprograma =$mysql->efectuarConsulta("SELECT biblioteca3.programa.id_programa,biblioteca3.programa.programa from programa");
+    $seleccionestudiante =$mysql->efectuarConsulta("SELECT biblioteca3.bibliotecario.id_bibliotecario,biblioteca3.bibliotecario.nombre from bibliotecario");
 
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>
@@ -55,29 +55,31 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <h1 class="fas fa-book"  href="index_Bibliotecario.html"> Biblioteca</h1>
+                                <h1 class="fas fa-book"  href="index_Bibliotecario.php"> Biblioteca</h1>
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="controlador/delete_programa.php" method="POST">
+                            <form action="controlador/delete_bibliotecario.php" method="POST">
                                 <h1 align="center" class="au-input au-input--full">Bienvenido Bibliotecario</h1>
                                 <br>
-                                <label>Seleccione el programa a eliminar</label>
+                                <center>
+                                <label>Seleccione el bibliotecario a eliminar</label>
                                 <br>
-                                <select name="seleccion_programa">
+                                <select name="seleccion_bibliotecario">
                                      <option value="0" disabled="" id="seleccion">Seleccione:</option>
                                         <?php
                                           //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
-                                          while ($valores1 = mysqli_fetch_assoc($seleccioneprograma)) {
+                                          while ($valores1 = mysqli_fetch_assoc($seleccionestudiante)) {
                                             ?>
                                             <!--se traen los datos a mostrar en el select-->
-                                            <option value="<?php echo $valores1['id_programa']?>"><?php echo $valores1['programa']?></option>';
+                                            <option value="<?php echo $valores1['id_bibliotecario']?>"><?php echo $valores1['nombre']?></option>';
                                             <?php
                                           }
                                         ?>
                                 </select>
+                                </center>
                                 <br><br>
-                                <button type="submit" name="actualizar" class="au-btn au-btn--block au-btn--green m-b-20">Eliminar programa</button>
+                                <button type="submit" name="eliminar" class="au-btn au-btn--block au-btn--green m-b-20">Eliminar Estudiante</button>
 
                             </form>
                         </div>

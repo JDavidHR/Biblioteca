@@ -35,7 +35,7 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo de la pagina-->
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -43,17 +43,15 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <h1 class="fas fa-book"  href="index_Bibliotecario.html"> Biblioteca</h1>
+                                <h1 class="fas fa-book"  href="index_Bibliotecario.php"> Biblioteca</h1>
                             </a>
                         </div>
                         <div class="login-form">
-                            
+                            <!--creacion de las etiquetas con funcion de boton para redirigir a los diferentes logins-->
                                 <h1 align="center" class="au-input au-input--full">Bienvenido</h1>
                                 <br>
                                 <a href="login_usuario.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Estudiante</a>
                                 <a href="login_bibliotecario.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Bibliotecario</a>
-
-                            
                         </div>
                     </div>
                 </div>
@@ -86,7 +84,7 @@
     <!-- Main JS-->
     <script src="js/main.js"></script>
 
-</body>
+</body><!--fin cuerpo de la pagina-->
 
 </html>
 <!-- end document-->

@@ -34,7 +34,7 @@
     <link href="css/theme.css" rel="stylesheet" media="all">
 
 </head>
-
+<!--cuerpo de la pagina-->
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-content--bge5">
@@ -43,8 +43,10 @@
                     <div class="login-content">
 
                         <div class="login-form">
+                            <!--formulario, redireccionado al controlador-->
                             <form action="controlador/insertar_prestamo.php" method="post">
                                 <div class="form-group">
+                                    <!--creacion de los inputs y labels a mostrar en la pagina-->
                                     <label>Titulo</label>
                                     <input class="au-input au-input--full" type="text" name="titulo" placeholder="Titulo Libro">
                                 
@@ -62,7 +64,7 @@
                                     
 
                                 </div>
-
+                                <!--boton-->
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Añadir Libro</button>
                                 
                             </form>
@@ -99,6 +101,6 @@
     <script src="js/main.js"></script>
 
 </body>
-
+<!--fin cuerpo-->
 </html>
 <!-- end document-->

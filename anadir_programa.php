@@ -34,7 +34,7 @@
     <link href="css/theme.css" rel="stylesheet" media="all">
 
 </head>
-
+<!--cuerpo de la pagina-->
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-content--bge5">
@@ -43,8 +43,10 @@
                     <div class="login-content">
 
                         <div class="login-form">
+                            <!--formulario, redireccionado al controlador-->
                             <form action="controlador/insertar_programa.php" method="post">
                                 <div class="form-group">
+                                    <!--creacion de los inputs y labels a mostrar en la pagina-->
                                     <label>Programa</label>
                                     <input class="au-input au-input--full" type="text" name="programa" placeholder="Ingrese Un Programa">
                                                                                                                                 

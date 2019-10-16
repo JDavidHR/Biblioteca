@@ -1,4 +1,5 @@
 <div class="section__content section__content--p30">
+    <!--menu superior del bibliotecario, todo lo que se modifique aqui se aplicara en las demas paginas, ya que se invoca por el metodo include-->
                     <div class="container-fluid">
                         <div class="header-wrap">
                            
@@ -36,7 +37,7 @@
                                                 
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="controlador/logout.php">
+                                                <a href="controlador/logout.php"><!--controlador donde se destruye la sesion-->
                                                     <i class="zmdi zmdi-power"></i>Cerrar Sesion</a>
                                             </div>
                                         </div>

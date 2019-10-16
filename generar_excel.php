@@ -35,13 +35,13 @@
 
 </head>
 
-<body>
+<body><!--cuerpo-->
     
     <div class="row">
         <div class="col text-center">
-            <a href="controlador/validacion_excel.php">
+            <a href="controlador/validacion_excel.php"><!--redireccion al controlador-->
                 Generar Excel/XLS
             </a>
         </div>
     </div>
-</body>
+</body><!--fin cuerpo-->

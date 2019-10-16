@@ -36,8 +36,9 @@
 
 </head>
 
-<body class="animsition">
-    <?php //funcion php
+<body class="animsition"> <!--cuerpo de la pagina-->
+    <?php 
+    //funcion php
     require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
     $mysql = new MySQL; //se crea un nuevo musql
@@ -59,8 +60,9 @@
                     <div class="login-content">
 
                         <div class="login-form">
-                            
+                            <!--formualrio con su respectiva redireccion-->
                             <form action="controlador/register_estudiante.php" method="post">
+                                <!--creacion de los inputs y labels-->
                                 <div class="form-group">
                                     <label>Nombre Completo</label>
                                     <input class="au-input au-input--full" type="text" name="nombre" placeholder="Nombre" onkeypress="return soloLetras(event)">
@@ -69,7 +71,7 @@
                                     <input class="au-input au-input--full" type="text" name="apellido" placeholder="Apellido" onkeypress="return soloLetras(event)">
                                 
                                     <label>Contraseña</label>
-                                    <input class="au-input au-input--full" type="text" name="contraseña" placeholder="Contraseña">
+                                    <input class="au-input au-input--full" type="password" name="contraseña" placeholder="Contraseña">
                                     
                                     <label>Tipo Documento</label>
 
@@ -123,10 +125,10 @@
                                     
 
                                 </div>
-
+                                <!--boton-->
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="registrar">Crear Estudiante</button>
                                 
-                            </form>
+                            </form> <!--fin formularios-->
                         </div>
                     </div>
                 </div>
@@ -159,7 +161,7 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-    <script src="js/validaciones.js"></script>
+    <script src="js/validaciones.js"></script> <!--validaciones de los inputs, nombre solo letras, documento solo numeros-->
 
 </body>
 

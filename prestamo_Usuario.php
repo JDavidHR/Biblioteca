@@ -36,8 +36,9 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo de la pagina-->
      <?php
+     //funcion php
 
     require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
@@ -46,7 +47,7 @@
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
 
 
-   
+//consulta y funcion almacenadas en la variable declarada
 $seleccionprestamo =$mysql->efectuarConsulta("SELECT biblioteca3.prestamos.id_prestamo,biblioteca3.prestamos.fecha_prestamo,biblioteca3.estudiantes.nombre as nombreestudiante ,biblioteca3.libros.titulo_libro, biblioteca3.bibliotecario.nombre as nombrebibliotecario
 from prestamos 
 join estudiantes 
@@ -56,7 +57,7 @@ on biblioteca3.libros.id_libro = biblioteca3.prestamos.libros_id_libro
 join bibliotecario 
 on biblioteca3.bibliotecario.id_bibliotecario = biblioteca3.prestamos.bibliotecario_id_bibliotecario");
    
-$mysql->desconectar();
+$mysql->desconectar();//funcion del mysql.php
 
 ?>
     <div class="page-wrapper">
@@ -64,6 +65,7 @@ $mysql->desconectar();
 
         <!-- MENU SIDEBAR-->
         <?php
+        //funcion php donde se llama al menu superior del usuario
           include("header_usuario_menu_cierre.php");
           ?>
         <!-- END MENU SIDEBAR-->
@@ -72,7 +74,8 @@ $mysql->desconectar();
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
-                <?php
+            <?php
+            //funcion php donde se llama al menu lateral del usuario
           include("header_usuario_menu_lateral_usuario.php");
           ?>
             </header>
@@ -86,8 +89,9 @@ $mysql->desconectar();
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
+                                    <!--creacion de la tabla-->
                                     <table class="table table-borderless table-striped table-earning">
-                                       <thead>
+                                       <thead><!--cabecera de la tabla-->
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Fecha</th>
@@ -95,10 +99,10 @@ $mysql->desconectar();
                                                 <th >Libro</th>
                                                 <th >Bibliotecario</th>
                                             </tr>
-                                        </thead>
-                                        <tbody>
+                                        </thead><!--fin cabecera de la tabla-->
+                                        <tbody><!--cuerpo de la tabla-->
                                           <?php
-                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos
                                            while ($resultado=mysqli_fetch_assoc($seleccionprestamo)) {
                                                 echo '<tr>
                                                 <td>'.$id_prestamo=$resultado['id_prestamo'].'</td>
@@ -110,7 +114,7 @@ $mysql->desconectar();
                                             }
                                         ?>
                                            
-                                        </tbody>
+                                        </tbody><!--fin cuerpo de la tabla-->
                                     </table>
                                 </div>
                             </div>
@@ -118,6 +122,7 @@ $mysql->desconectar();
                             <div class="col-md-12">
                                 <div class="copyright">
                                     <?php
+                                    //funcion php donde se llama al footer de la pagina
                                     include("footer.php");
                                     ?>
                                 </div>

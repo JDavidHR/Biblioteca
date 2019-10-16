@@ -35,8 +35,9 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo-->
 <?php
+//funcion php
 
     require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
@@ -45,11 +46,11 @@
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
 
 
-   
+//consulta y funcion almacenada en una varibale declarada
 $seleccionbibliotecario =$mysql->efectuarConsulta("SELECT biblioteca3.bibliotecario.numero_documento,biblioteca3.bibliotecario.nombre,biblioteca3.bibliotecario.apellido
-from bibliotecario");
+from bibliotecario where estado = 1");
    
-$mysql->desconectar();
+$mysql->desconectar();//funcion llamada desde mysql.php
 
 ?>
     <div class="page-wrapper">
@@ -57,6 +58,7 @@ $mysql->desconectar();
 
         <!-- MENU SIDEBAR-->
         <?php
+        //funcion php del menu superior del bibliotecario
                     include("header_usuario_menu_lateral_bibliotecario.php");
           ?>
         <!-- END MENU SIDEBAR-->
@@ -65,7 +67,8 @@ $mysql->desconectar();
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
- <?php
+        <?php
+        //funcion php del menu lateral del bibliotecario
 
           include("header_usuario_menu_cierre_bibliotecario.php");
           ?>   
@@ -80,15 +83,16 @@ $mysql->desconectar();
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
+                                    <!--creacion de la tabla-->
                                     <table class="table table-borderless table-striped table-earning">
-                                        <thead>
+                                        <thead><!--cabecera de la tabla-->
                                             <tr>
                                                 <th>Numero Documento</th>
                                                 <th>Nombre</th>
                                                 <th>Apellido</th>
                                             </tr>
                                         </thead>
-                                         <tbody>
+                                         <tbody><!--cuerpo de la tabla-->
                                             <?php
                                           //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
                                            while ($resultado=mysqli_fetch_assoc($seleccionbibliotecario)) {
@@ -100,9 +104,10 @@ $mysql->desconectar();
                                             }
                                         ?>
                                         </tbody>
-                                    </table>
+                                    </table><!--fin tabla-->
                                 </div>
                             </div>
+                            <!--creacion de los botones-->
                              <a href="eliminar_bibliotecario.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Eliminar  Bibliotecario</a>
 
                               <a href="actualizar_bibliotecario.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Actualizar  Bibliotecario</a>
@@ -111,7 +116,7 @@ $mysql->desconectar();
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <?php
+                                    <?php//funcion php donde se llama al footer de la pagina
                                     include("footer.php");
                                     ?>
                                 </div>

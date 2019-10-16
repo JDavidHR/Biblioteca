@@ -36,8 +36,9 @@
 
 </head>
 
-<body class="animsition">
-     <?php //funcion php
+<body class="animsition"> <!--cuerpo de la pagina-->
+     <?php 
+     //funcion php
     require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
     $mysql = new MySQL; //se crea un nuevo musql
@@ -60,6 +61,7 @@
                              <!--Formulario para recoger los datos de registro por medio del metodo POST y la accion redirige a la pagina de inicio de sesion de bibliotecario-->
                             <form action="controlador/register_bibliotecario_controlador.php" method="post">
                                 <div class="form-group">
+                                    <!--creacion de los inputs y labels que se veran en la parte grafica-->
                                     <label>Nombre Completo</label>
                                     <input class="au-input au-input--full" type="text" name="nombreb" placeholder="Nombre" onkeypress="return soloLetras(event)">
                                 
@@ -135,9 +137,9 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-    <script src="js/validaciones.js"></script>
+    <script src="js/validaciones.js"></script> <!--validaciones de los inputs, nombre solo letras, documento solo numeros-->
 
-</body>
+</body> <!--fin cuerpo de la pagina-->
 
 </html>
 <!-- end document-->

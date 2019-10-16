@@ -35,8 +35,9 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo de la pagina-->
      <?php
+     //funcion php
 
     require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
@@ -45,12 +46,12 @@
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
 
 
-   
+   //consulta y funcion almacenada en la variabloe declarada
 $seleccionlibro =$mysql->efectuarConsulta("SELECT biblioteca3.libros.id_libro,biblioteca3.libros.titulo_libro,biblioteca3.libros.editorial,biblioteca3.libros.autor, biblioteca3.libros.fecha_publicacion
 from libros
 join estudiantes");
    
-$mysql->desconectar();
+$mysql->desconectar();//funcion llamada desde mysql.php
 
 ?>
     <div class="page-wrapper">
@@ -58,6 +59,7 @@ $mysql->desconectar();
 
         <!-- MENU SIDEBAR-->
          <?php
+         //funcion donde se llama al menu superior del usuario
           include("header_usuario_menu_cierre.php");
           ?>
         <!-- END MENU SIDEBAR-->
@@ -67,6 +69,7 @@ $mysql->desconectar();
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
           <?php
+          //funcion php donde se llama al menun lateral del usuario
           include("header_usuario_menu_lateral_usuario.php");
           ?>
             </header>
@@ -80,8 +83,8 @@ $mysql->desconectar();
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
+                                    <table class="table table-borderless table-striped table-earning"><!--creacion de la tabla-->
+                                        <thead><!--cabecera de la tabla-->
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Titulo</th>
@@ -91,10 +94,11 @@ $mysql->desconectar();
                                             </tr>
 
                                             
-                                        </thead>
+                                        </thead><!--fin cabecera de la tabla-->
 
-                                        <tbody>
+                                        <tbody><!--cuerpo de la tabla-->
                                           <?php
+                                          //funcion php donde se hace el recorrido para mostrar los datos correspondientes del libro
                                            while ($resultado=mysqli_fetch_assoc($seleccionlibro)) {
                                                 echo '<tr>
                                                 <td>'.$id=$resultado['id_libro'].'</td>
@@ -105,7 +109,7 @@ $mysql->desconectar();
                                                 <tr>';
                                             }
                                         ?>
-                                        </tbody>
+                                        </tbody><!--fin cuerpo de la tabla-->
 
                                     </table>
                                 </div>
@@ -115,6 +119,7 @@ $mysql->desconectar();
                             <div class="col-md-12">
                                 <div class="copyright">
                                     <?php
+                                    //funcion php donde se llama al footer de la pagina
                                     include("footer.php");
                                     ?>
                                 </div>
@@ -141,7 +146,7 @@ $mysql->desconectar();
     </script>
     <!-- Main JS-->
     <script src="js/main.js"></script>
-</body>
+</body><!--fin cuerpo de la pagina-->
 
 </html>
 <!-- end document-->

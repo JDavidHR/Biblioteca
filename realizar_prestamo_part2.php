@@ -35,8 +35,9 @@
 
 </head>
 
-<body class="animsition">
-     <?php //funcion php
+<body class="animsition"><!--cuerpo de la pagina-->
+     <?php 
+     //funcion php
     require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
     $mysql = new MySQL; //se crea un nuevo musql
@@ -56,8 +57,10 @@
                     <div class="login-content">
 
                         <div class="login-form">
+                            <!--formulario con su respectiva redireccion-->
                             <form action="controlador/insertar_prestamo.php" method="post">
                                 <div class="form-group">
+                                    <!--creacion de los inputs y selects-->
                                     <label>Titulo Libro</label>
                                     <select class="au-input au-input--full" name="titulo">
                                          <option value="0">Seleccione:</option>
@@ -106,10 +109,10 @@
                                     
 
                                 </div>
-
+                                <!--boton-->
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="añadir">Añadir Prestamo</button>
                                 
-                            </form>
+                            </form><!--fin formulario-->
                         </div>
                     </div>
                 </div>
@@ -141,8 +144,8 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-
-</body>
+<!--fin cuerpo de la pagina-->
+</body> 
 
 </html>
 <!-- end document-->

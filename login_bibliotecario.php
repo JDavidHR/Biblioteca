@@ -35,7 +35,7 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo de la pagina-->
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -47,6 +47,7 @@
                             </a>
                         </div>
                         <div class="login-form">
+                            <!--formulario con redireccion al controlador correspondiente-->
                             <form action="controlador/controlador_login_bibliotecario.php" method="post">
                                 <div class="form-group">
                                     <label>Documento Bibliotecario</label>
@@ -59,7 +60,7 @@
                                
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Iniciar Sesion</button>
                                 
-                            </form>
+                            </form><!--fin formulario-->
                             
                         </div>
                     </div>
@@ -92,8 +93,8 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-    <script src="js/validaciones.js"></script>
-</body>
+    <script src="js/validaciones.js"></script><!--script donde se hace la validacion de los inputs, nombre solo letras, documento solo numeros-->
+</body><!--fin cuerpo de la pagina-->
 
 </html>
 <!-- end document-->

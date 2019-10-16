@@ -35,8 +35,9 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo de la pagina-->
 <?php
+//funcion php 
 
     require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
@@ -45,7 +46,7 @@
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
 
 
-   
+//consulta y funcion almacenada en una variable declarada
 $seleccionestudiante =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.numero_documento,biblioteca3.estudiantes.nombre,biblioteca3.estudiantes.apellido,biblioteca3.programa.programa,biblioteca3.libros.titulo_libro
 from prestamos
 join estudiantes
@@ -57,7 +58,7 @@ on biblioteca3.libros.id_libro = biblioteca3.prestamos.libros_id_libro");
 
 
    
-$mysql->desconectar();
+$mysql->desconectar();//funcion llamada desde mysql.php
 
 ?>
     <div class="page-wrapper">
@@ -65,6 +66,7 @@ $mysql->desconectar();
 
         <!-- MENU SIDEBAR-->
         <?php
+        //funcion php donde se encuentra el menu superior de la pagina del bibliotecario
            include("header_usuario_menu_lateral_bibliotecario.php");
           ?>
         <!-- END MENU SIDEBAR-->
@@ -73,7 +75,8 @@ $mysql->desconectar();
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
-<?php
+        <?php
+        //funcion php donde se encuentra el menu lateral del bibliotecario
 
           include("header_usuario_menu_cierre_bibliotecario.php");
           ?> 
@@ -88,8 +91,9 @@ $mysql->desconectar();
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
+                                    <!--creacion de la tabla-->
                                     <table class="table table-borderless table-striped table-earning">
-                                        <thead>
+                                        <thead><!--cabecera de la tabla-->
                                             <tr>
                                                 <th>Numero Documento</th>
                                                 <th>Nombre</th>
@@ -97,8 +101,8 @@ $mysql->desconectar();
                                                 <th >Programa Cursa</th>
                                                 <th >Libro Prestado</th>
                                             </tr>
-                                        </thead>
-                                        <tbody>
+                                        </thead><!--fin cabecera de la tabla-->
+                                        <tbody><!--cuerpo de la tabla-->
                                         <?php
                                           //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
                                            while ($resultado=mysqli_fetch_assoc($seleccionestudiante)) {
@@ -111,10 +115,11 @@ $mysql->desconectar();
                                                 <tr>';
                                             }
                                         ?>
-                                        </tbody>
-                                    </table>
+                                        </tbody><!--fin cuerpo de la tabla-->
+                                    </table><!--fin tabla-->
                                 </div>
                             </div>
+                            <!--creacion de la etiqueta como funcion de boton para redireccion de las paginas-->
                              <a href="eliminar_estudiante.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Eliminar Estudiante</a>
 
                               <a href="actualizar_estudiante.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Actualizar Estudiante</a>
@@ -123,7 +128,7 @@ $mysql->desconectar();
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <?php
+                                    <?php//funcion php donde se llama al footer de la pagina
                                     include("footer.php");
                                     ?>
                                 </div>

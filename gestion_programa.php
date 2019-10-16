@@ -1,4 +1,16 @@
 <!DOCTYPE html>
+<?php
+//funcion php
+
+    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
+    $mysql = new MySQL; //se crea un nuevo musql
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+  //consulta y funcion almacenada en la variable declarada
+$seleccionprograma =$mysql->efectuarConsulta("SELECT biblioteca3.programa.id_programa,biblioteca3.programa.programa
+from programa where estado = 1");
+
+$mysql->desconectar();//funcion llamada desde mysql.php
+?>
 <html lang="en">
 
 <head>
@@ -35,28 +47,14 @@
 
 </head>
 
-<body class="animsition">
-<?php
+<body class="animsition"><!--cuerpo de la pagina-->
 
-    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
-
-    $mysql = new MySQL; //se crea un nuevo musql
-
-    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
-
-
-   
-$seleccionprograma =$mysql->efectuarConsulta("SELECT biblioteca3.programa.id_programa,biblioteca3.programa.programa
-from programa");
-   
-$mysql->desconectar();
-
-?>
     <div class="page-wrapper">
 
 
         <!-- MENU SIDEBAR-->
            <?php
+           //funcion php donde se llama al menu superior del bibliotecario
             include("header_usuario_menu_lateral_bibliotecario.php");
            ?>
         <!-- END MENU SIDEBAR-->
@@ -66,6 +64,7 @@ $mysql->desconectar();
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
           <?php
+          //funcion php donde se llama al menu lateral del bibliotecario
 
           include("header_usuario_menu_cierre_bibliotecario.php");
           ?>    
@@ -80,14 +79,15 @@ $mysql->desconectar();
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="table-responsive table--no-card m-b-30">
+                                    <!--creacion de la tabla-->
                                     <table class="table table-borderless table-striped table-earning">
-                                        <thead>
+                                        <thead><!--cabecera de la tabla-->
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Programas</th>
                                             </tr>
-                                        </thead>
-                                        <tbody>
+                                        </thead><!--fin cabecera de la tabla-->
+                                        <tbody><!--cuerpo de la tabla-->
                                         <?php
                                           //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
                                            while ($resultado=mysqli_fetch_assoc($seleccionprograma)) {
@@ -97,10 +97,11 @@ $mysql->desconectar();
                                                 <tr>';
                                             }
                                         ?>
-                                        </tbody>
-                                    </table>
+                                        </tbody><!--fin cuerpo de la tabla-->
+                                    </table><!--fin tabla-->
                                 </div>
                             </div>
+                            <!--creacion de la etiqueta como funcion de boton donde se redireccionaran las paginas-->
                              <a href="eliminar_programa.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Eliminar Programa</a>
 
                               <a href="actualizar_programa.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Actualizar Programa</a>
@@ -109,7 +110,7 @@ $mysql->desconectar();
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <?php
+                                    <?php//funcion php donde se llama al cuerpo de la pagina
                                     include("footer.php");
                                     ?>
                                 </div>
@@ -136,7 +137,7 @@ $mysql->desconectar();
     </script>
     <!-- Main JS-->
     <script src="js/main.js"></script>
-</body>
+</body><!--fin cuerpo de la pagina-->
 
 </html>
 <!-- end document-->

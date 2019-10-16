@@ -1,4 +1,5 @@
 <aside class="menu-sidebar d-none d-lg-block">
+    <!--menu lateral del bibliotecario, todo lo que se modifique aqui se aplicara en las demas paginas ya que esatas llaman a esta por el metodo include-->
             <div class="logo">
                 <a href="#">
                     <h1 class="fas fa-book"  href="index_Bibliotecario.html"> Biblioteca</h1>
@@ -10,7 +11,7 @@
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-home"></i>Inicio</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <ul class="list-unstyled navbar__sub-list js-sub-list"><!--opciones del menu con su respectiva redireccion-->
                                 <li>
                                     <a href="inventario_Bibliotecario.php">Gestionar Inventario</a>
                                 </li>

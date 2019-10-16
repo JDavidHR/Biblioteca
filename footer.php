@@ -1,4 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
+<!--todo lo que se modifique aqui se aplicara en las demas paginas ya que las paginas llaman a esta con un required-->
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -9,9 +10,10 @@
     <link rel="stylesheet" type="text/css" href="css/configuracion.css" media="screen">
     <link href="css/bootstrap.css" rel="stylesheet">
   </head>
-  <body>
+  <body><!--cuerpo-->
 
     <footer class="container col-12" align="center">
+      <!--mensaje a mostrar al final de las paginas-->
       <p>Copyright © 2019 Biblioteca Cotecnova. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
     </footer>
     <!-- Bootstrap core JavaScript -->

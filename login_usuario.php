@@ -36,7 +36,7 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo de la pagina-->
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -48,7 +48,9 @@
                             </a>
                         </div>
                         <div class="login-form">
+                            <!--formulario con su respectiva redireccion al controlador-->
                             <form action="controlador/controlador_login.php" method="post">
+                                <!--creacion de los inputs y labels del login-->
                                 <div class="form-group">
                                     <label>Documento Estudiante</label>
                                     <input class="au-input au-input--full" type="text" name="documento" placeholder="Numero Documento"  onkeypress="return soloNumeros(event)">
@@ -58,7 +60,7 @@
                                     <input class="au-input au-input--full" type="password" name="password" placeholder="Maximo 12 caracteres" maxlength="12">
                                 </div>
                                
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Iniciar Sesion</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Iniciar Sesion</button><!--boton-->
                                
                             </form>
                             
@@ -93,8 +95,8 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-    <script src="js/validaciones.js"></script>
-</body>
+    <script src="js/validaciones.js"></script><!--script donde se hace la validacion de los inputs, nombre solo letras, documento solo numeros-->
+</body><!--fin cuerpo de la pagina-->
 
 </html>
 <!-- end document-->

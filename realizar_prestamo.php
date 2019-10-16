@@ -35,7 +35,7 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo de la pagina-->
     <div class="page-wrapper">
         <div class="page-content--bge5">
             <div class="container">
@@ -47,7 +47,9 @@
                             </a>
                         </div>
                         <div class="login-form">
+                            <!--formulario con su respectiva redireccion-->
                             <form action="realizar_prestamo_part2.php" method="POST">
+                                <!--creacion de los inputs y labels-->
                                 <h1 align="center" class="au-input au-input--full">Bienvenido Bibliotecario</h1>
                                 <br>
                                 <label>ingrese el numero de documento del estudiante</label>
@@ -55,7 +57,7 @@
                                 <br><br>
                                 <button type="submit" name="realizar_prestamo" class="au-btn au-btn--block au-btn--green m-b-20">Realizar Prestamo</button>
 
-                            </form>
+                            </form><!--fin formulario-->
                         </div>
                     </div>
                 </div>
@@ -88,7 +90,7 @@
     <!-- Main JS-->
     <script src="js/main.js"></script>
 
-</body>
+</body><!--fin cuerpo de la pagina-->
 
 </html>
 <!-- end document-->

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php
+<?php 
+//funcion php
 
     require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
@@ -7,7 +8,7 @@
 
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
 
-
+    //consulta y funcion almacenada en la variable declarada
     $seleccionlibro =$mysql->efectuarConsulta("SELECT * FROM libros");
 
 ?>
@@ -47,12 +48,13 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsition"><!--cuerpo de la pagina-->
     <div class="page-wrapper">
 
 
         <!-- MENU SIDEBAR-->
        <?php
+       //funcion php donde se llama al menu lateral de la pagina
                     include("header_usuario_menu_lateral_bibliotecario.php");
           ?>
         <!-- END MENU SIDEBAR-->
@@ -61,7 +63,8 @@
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
- <?php
+        <?php
+        //funcion php donde se llama al menu superior de la pagina
 
           include("header_usuario_menu_cierre_bibliotecario.php");
           ?>  
@@ -76,8 +79,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
+                                    <table class="table table-borderless table-striped table-earning"><!--creacion de la tabla-->
+                                        <thead><!--cabecera de la tabla-->
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Titulo</th>
@@ -85,13 +88,13 @@
                                                 <th >Autor</th>
                                                 <th >Fecha</th>
                                             </tr>
-                                        </thead>
-                                         <tbody>
+                                        </thead><!--fin cabecera de la tabla-->
+                                         <tbody><!--cuerpo de la tabla-->
                                           <?php
                                           //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
                                           while ($valores2 = mysqli_fetch_assoc($seleccionlibro)) {
                                             
-                                            //se traen los datos a mostrar 
+                                            //se traen los datos a mostrar de la consulta
                                                         echo '<tr>
                                                         <td>'.$valores2['id_libro'].'</td>
                                                         <td>'.$valores2['titulo_libro'].'</td>
@@ -101,10 +104,11 @@
                                                         <tr>'; 
                                           }
                                         ?>
-                                        </tbody>
+                                        </tbody><!--fin cuerpo de la tabla-->
                                     </table>
                                 </div>
                             </div>
+                            <!--creacion de la etiqueta con funcion de boton para redireccionar a las paginas-->
                              <a href="eliminar_libro.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Eliminar Libro</a>
 
                               <a href="actualizar_libro.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Actualizar Libro</a>
@@ -114,6 +118,7 @@
                             <div class="col-md-12">
                                 <div class="copyright">
                                     <?php
+                                    //funcion php donde se llama al footer de la pagina
                                     include("footer.php");
                                     ?>
                                 </div>
@@ -140,7 +145,7 @@
     </script>
     <!-- Main JS-->
     <script src="js/main.js"></script>
-</body>
+</body><!--fin cuerpo de la pagina-->
 
 </html>
 <!-- end document-->
