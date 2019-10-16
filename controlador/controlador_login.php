@@ -2,20 +2,17 @@
 //condicion para ver si los campos estan vacios
 if(isset($_POST['documento']) && !empty($_POST['documento']) && isset($_POST['password']) && !empty($_POST['password'])){
 
-    
-
     require_once '../modelo/MySQL.php'; //se llama la pagina donde se encuentra la conexion para la base de datos
-    //declaracion de variables
+    //declaracion de variables con el metodo post
     $documento = $_POST['documento'];
-    $pass = md5($_POST['password']);
+    $pass = md5($_POST['password']); //md5 es para encriptar la contraseña
     $mysql = new MySQL(); //se declara un nuevo array
-    $mysql->conectar();
+    $mysql->conectar(); //funcion llamada de mysql.php
     
     //consulta donde hace la comparacion de lo que el usuario ingresa con lo almacenado en la base de datos
-    //$usuarios = $mysql->efectuarConsulta("SELECT * FROM estudiantes WHERE numero_documento='".$documento."' AND Contrasena='".$pass."'");
     $usuarios = $mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.numero_documento,biblioteca3.estudiantes.contrasena FROM biblioteca3.estudiantes WHERE biblioteca3.estudiantes.numero_documento='".$documento."' AND biblioteca3.estudiantes.contrasena='".$pass."'");
     
-    $mysql->desconectar();
+    $mysql->desconectar();//funcion llamada desde mysql.php
 }
 
 

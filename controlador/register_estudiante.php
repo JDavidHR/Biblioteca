@@ -1,8 +1,8 @@
 <?php
-require_once '../modelo/MySQL.php';
+require_once '../modelo/MySQL.php'; //llamado de pagina donde se encuentra la conexion a la BD
 //condicion donde se rectifica que los campos no esten vacios y que esten definidos
 if(isset($_POST['registrar']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['contraseña']) && !empty($_POST['tipo_documento']) && !empty($_POST['documento']) && !empty($_POST['estado_civil']) && !empty($_POST['programa'])){
-
+        //declaracion de variables, llamadas por el metodo post
         $nombre=$_POST["nombre"];
         $apellido=$_POST["apellido"];
         $pass=md5($_POST["contraseña"]);
@@ -13,21 +13,20 @@ if(isset($_POST['registrar']) && !empty($_POST['nombre']) && !empty($_POST['apel
 
 
     $mysql = new MySQL;//nuevo mysql
-    $mysql->conectar();
+    $mysql->conectar();//funcion de conectar a la BD ubicada en mysql.php
 
-
+    //declaracion de la variable donde se almacena la funcion de mysql.php donde se hara la respectiva consulta
     $consulta =$mysql->efectuarConsulta("SELECT numero_documento FROM biblioteca3.estudiantes WHERE numero_documento = ".$ndocumento."");
-    //echo "SELECT * FROM biblioteca3.bibliotecario WHERE biblioteca3.bibliotecario.numero_documento = ".$ndocumentob."";
-    //$resultado = mysqli_query($mysql,$consulta);
 
-
+    //condicion donde se rectifica si el documento ingresado ya existe, si el valor es 1 es porque encontro un resultado en la BD y si es menor a 1 es porque no encontro nada.
     if(mysqli_num_rows($consulta)>0){
-         echo"<script type=\"text/javascript\">alert('El documento ya se encuentra registrado'); window.location='../register_estudiante.php';</script>";
+        //mensaje de salida (alerta) junto a su redireccion de pagina
+         echo"<script type=\"text/javascript\">alert('El documento ya se encuentra registrado'); window.location='../register_usuario.php';</script>";
     }else{
-            $sql=$mysql->efectuarConsulta("insert into biblioteca3.estudiantes(numero_documento,nombre,apellido,contrasena,tipo_documento_id_tipo,estado_civil_id_estado,programa_id_programa) VALUES (".$ndocumento.",'".$nombre."','".$apellido."','".$pass."','".$documento."','".$estado."','".$programa."')");
-
-            echo"<script type=\"text/javascript\">alert('Se registro correctamente!'); window.location='../login_usuario.php';</script>";
-            //echo"<script type=\"text/javascript\">alert('okay'); window.location='controlador/register_bibliotecario_controlador.php';</script>";
+            //sin no encontro ningun resultado se procede con el insertar, almacenado en una variable junto a la funcion ubicada en mysql.php
+            $sql=$mysql->efectuarConsulta("insert into biblioteca3.estudiantes(numero_documento,nombre,apellido,contrasena,tipo_documento_id_tipo,estado_civil_id_estado,programa_id_programa, estado) VALUES (".$ndocumento.",'".$nombre."','".$apellido."','".$pass."','".$documento."','".$estado."','".$programa."',1)");
+            //mensaje de salida (alerta) junto a su redireccion de pagina
+            echo"<script type=\"text/javascript\">alert('Se registro correctamente!'); window.location='../gestion_estudiantes.php';</script>";
     }
 }
 
