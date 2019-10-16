@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2019 a las 02:29:26
+-- Tiempo de generación: 16-10-2019 a las 04:10:12
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -35,17 +35,18 @@ CREATE TABLE `bibliotecario` (
   `numero_documento` int(11) NOT NULL,
   `Contrasena` varchar(45) NOT NULL,
   `estado_civil_id_estado` int(11) NOT NULL,
-  `tipo_documento_id_tipo` int(11) NOT NULL
+  `tipo_documento_id_tipo` int(11) NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `bibliotecario`
 --
 
-INSERT INTO `bibliotecario` (`id_bibliotecario`, `nombre`, `apellido`, `numero_documento`, `Contrasena`, `estado_civil_id_estado`, `tipo_documento_id_tipo`) VALUES
-(1, 'Sebastian', 'Ariza', 1006291486, 'e10adc3949ba59abbe56e057f20f883e', 1, 1),
-(2, 'Daniel', 'Agudelo', 1112776996, 'e10adc3949ba59abbe56e057f20f883e', 5, 1),
-(3, 'Cotecnova', 'Cotecnova', 1111111111, 'e10adc3949ba59abbe56e057f20f883e', 9, 1);
+INSERT INTO `bibliotecario` (`id_bibliotecario`, `nombre`, `apellido`, `numero_documento`, `Contrasena`, `estado_civil_id_estado`, `tipo_documento_id_tipo`, `estado`) VALUES
+(1, 'Sebastian', 'Ariza', 1006291486, 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 1),
+(2, 'Daniel', 'Agudelo', 1112776996, 'e10adc3949ba59abbe56e057f20f883e', 5, 1, 1),
+(3, 'Cotecnova', 'Cotecnova', 1111111111, 'e10adc3949ba59abbe56e057f20f883e', 9, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -87,17 +88,18 @@ CREATE TABLE `estudiantes` (
   `contrasena` varchar(45) NOT NULL,
   `tipo_documento_id_tipo` int(11) NOT NULL,
   `estado_civil_id_estado` int(11) NOT NULL,
-  `programa_id_programa` int(11) NOT NULL
+  `programa_id_programa` int(11) NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `estudiantes`
 --
 
-INSERT INTO `estudiantes` (`id_estudiante`, `numero_documento`, `nombre`, `apellido`, `contrasena`, `tipo_documento_id_tipo`, `estado_civil_id_estado`, `programa_id_programa`) VALUES
-(1, 1006291396, 'Juan', 'Hoyos', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 1),
-(2, 1006292065, 'Samuel', 'Fernandez', 'e10adc3949ba59abbe56e057f20f883e', 2, 1, 1),
-(3, 1111111111, 'Cotecnova', 'Cotecnova', 'e10adc3949ba59abbe56e057f20f883e', 1, 5, 4);
+INSERT INTO `estudiantes` (`id_estudiante`, `numero_documento`, `nombre`, `apellido`, `contrasena`, `tipo_documento_id_tipo`, `estado_civil_id_estado`, `programa_id_programa`, `estado`) VALUES
+(1, 1006291396, 'Juan', 'Hoyos', 'e10adc3949ba59abbe56e057f20f883e', 1, 1, 1, 1),
+(2, 1006292065, 'Samuel', 'Fernandez', 'e10adc3949ba59abbe56e057f20f883e', 2, 1, 1, 1),
+(3, 1111111111, 'Cotecnova', 'Cotecnova', 'e10adc3949ba59abbe56e057f20f883e', 1, 5, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -110,15 +112,16 @@ CREATE TABLE `libros` (
   `titulo_libro` varchar(45) NOT NULL,
   `editorial` varchar(45) NOT NULL,
   `autor` varchar(45) NOT NULL,
-  `fecha_publicacion` date NOT NULL
+  `fecha_publicacion` date NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `libros`
 --
 
-INSERT INTO `libros` (`id_libro`, `titulo_libro`, `editorial`, `autor`, `fecha_publicacion`) VALUES
-(1, '100 Años de Soledad', 'Planeta', 'Gabriel Garcia Marquez', '1997-10-01');
+INSERT INTO `libros` (`id_libro`, `titulo_libro`, `editorial`, `autor`, `fecha_publicacion`, `estado`) VALUES
+(1, '100 Años de Soledad', 'Planeta', 'Gabriel Garcia Marquez', '1997-10-01', 1);
 
 -- --------------------------------------------------------
 
@@ -131,15 +134,16 @@ CREATE TABLE `prestamos` (
   `fecha_prestamo` datetime NOT NULL,
   `bibliotecario_id_bibliotecario` int(11) NOT NULL,
   `estudiantes_id_estudiante` int(10) NOT NULL,
-  `libros_id_libro` int(11) NOT NULL
+  `libros_id_libro` int(11) NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `prestamos`
 --
 
-INSERT INTO `prestamos` (`id_prestamo`, `fecha_prestamo`, `bibliotecario_id_bibliotecario`, `estudiantes_id_estudiante`, `libros_id_libro`) VALUES
-(1, '0000-00-00 00:00:00', 2, 1, 1);
+INSERT INTO `prestamos` (`id_prestamo`, `fecha_prestamo`, `bibliotecario_id_bibliotecario`, `estudiantes_id_estudiante`, `libros_id_libro`, `estado`) VALUES
+(1, '2019-10-16 03:14:11', 2, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -149,31 +153,33 @@ INSERT INTO `prestamos` (`id_prestamo`, `fecha_prestamo`, `bibliotecario_id_bibl
 
 CREATE TABLE `programa` (
   `id_programa` int(11) NOT NULL,
-  `programa` varchar(45) NOT NULL
+  `programa` varchar(45) NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `programa`
 --
 
-INSERT INTO `programa` (`id_programa`, `programa`) VALUES
-(1, 'Ingeniería de Sistemas'),
-(2, 'Agropecuaria '),
-(3, 'Administración de Empresas'),
-(4, 'Contabilidad '),
-(5, 'Mercadeo y Ventas'),
-(6, 'Gestión Empresarial '),
-(7, 'Administración y Negocios Internacionales'),
-(8, 'Administración Turística'),
-(9, 'Turismo y Hoteleria '),
-(10, 'Administración Agro industrial'),
-(11, 'Administración de Servicios de Salud'),
-(12, 'Regencia en Farmacia '),
-(13, 'Diseño y Confección '),
-(14, 'Licenciatura en Pedagogía Infantil'),
-(15, 'Cursos de Ingles y Trances'),
-(16, 'Licenciatura en Ingles '),
-(17, 'Licenciatura en Francés ');
+INSERT INTO `programa` (`id_programa`, `programa`, `estado`) VALUES
+(1, 'Ingeniería de Sistemas', 1),
+(2, 'Agropecuaria ', 1),
+(3, 'Administración de Empresas', 1),
+(4, 'Contabilidad ', 1),
+(5, 'Mercadeo y Ventas', 1),
+(6, 'Gestión Empresarial ', 1),
+(7, 'Administración y Negocios Internacionales', 1),
+(8, 'Administración Turística', 1),
+(9, 'Turismo y Hoteleria ', 1),
+(10, 'Administración Agro industrial', 1),
+(11, 'Administración de Servicios de Salud', 1),
+(12, 'Regencia en Farmacia ', 1),
+(13, 'Diseño y Confección ', 1),
+(14, 'Licenciatura en Pedagogía Infantil', 1),
+(15, 'Cursos de Ingles y Trances', 1),
+(16, 'Licenciatura en Ingles ', 1),
+(17, 'Licenciatura en Francés ', 0),
+(18, 'hola', 1);
 
 -- --------------------------------------------------------
 
@@ -256,7 +262,7 @@ ALTER TABLE `tipo_documento`
 -- AUTO_INCREMENT de la tabla `bibliotecario`
 --
 ALTER TABLE `bibliotecario`
-  MODIFY `id_bibliotecario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_bibliotecario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_civil`
@@ -274,19 +280,19 @@ ALTER TABLE `estudiantes`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
 --
 ALTER TABLE `prestamos`
-  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_prestamo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `programa`
 --
 ALTER TABLE `programa`
-  MODIFY `id_programa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_programa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_documento`
