@@ -8,7 +8,7 @@
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
 
 //declaracion de variables metodo post
-$id = $_POST['seleccionestudiante'];
+$id = $_REQUEST['seleccionestudiante'];
 
 
 $mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.nombre,biblioteca3.estudiantes.apellido,biblioteca3.programa.programa,biblioteca3.estado_civil.estado,biblioteca3.estudiantes.contrasena,biblioteca3.estudiantes.numero_documento,biblioteca3.tipo_documento.tipo
@@ -27,6 +27,8 @@ $apellido = $valores1['apellido'];
 $contrasena = $valores1['contrasena'];
 $estado = $valores1['estado'];
 $programa = $valores1['programa'];
+$documento = $valores1['numero_documento'];
+$tipo = $valores1['tipo'];
 
     }
 $mysql->desconectar();//funcion llamada desde mysql.php
@@ -97,7 +99,7 @@ $mysql->desconectar();//funcion llamada desde mysql.php
                                     <input class="au-input au-input--full" type="text" name="apellido" placeholder="Apellido" value="<?php echo $apellido ?>">
                                 
                                     <label>Contraseña</label>
-                                    <input class="au-input au-input--full" type="text" name="contraseña" placeholder="Contraseña" value="">
+                                    <input class="au-input au-input--full" type="text" name="contrasena" placeholder="Contraseña" value="">
                                     
                                     <label>Tipo Documento</label>
                                     <select name="tipo_documento" disabled="">
@@ -116,7 +118,7 @@ $mysql->desconectar();//funcion llamada desde mysql.php
 
 
                                     <label>Documento</label>
-                                    <input class="au-input au-input--full" type="text" name="documento" placeholder="Documento" disabled="">
+                                    <input class="au-input au-input--full" type="text" name="documento" placeholder="Documento" disabled="" value="<?php echo $documento ?>">
                                 
                                     <label>Estado Civil</label>
                                         <select name="estado_civil" value="<?php echo $estado ?>">
