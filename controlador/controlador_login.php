@@ -45,6 +45,7 @@ if(isset($_POST['documento']) && !empty($_POST['documento']) && isset($_POST['pa
         
     }
     else{
+        
      header("Location: ../login_usuario.php"); //ubicacion si el usuario ingresado no existe
 
     }
