@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+ require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
+    $mysql = new MySQL; //se crea un nuevo musql
+
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+
+//declaracion de variables metodo post
+$id = $_POST['seleccionestudiante'];
+
+
+$mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.nombre,biblioteca3.estudiantes.apellido,biblioteca3.programa.programa,biblioteca3.estado_civil.estado,biblioteca3.estudiantes.contrasena
+from prestamos
+join estudiantes
+on biblioteca3.estudiantes.id_estudiante = biblioteca3.prestamos.estudiantes_id_estudiante
+join programa 
+on biblioteca3.programa.id_programa = biblioteca3.estudiantes.programa_id_programa 
+join estado_civil
+on biblioteca3.estado_civil.id_estado = biblioteca3.estudiantes.estado_civil_id_estado WHERE biblioteca3.estudiantes.id_estudiante = ".$id."");
+
+
+
+//se inicia el recorrido para mostrar los datos de la BD
+while ($valores1 = mysqli_fetch_assoc($mostrardatos)) {
+//declaracion de variables
+$nombre = $valores1['nombre'];
+$apellido = $valores1['apellido'];
+$contrasena = $valores1['contrasena'];
+$estado = $valores1['estado'];
+$programa = $valores1['programa'];
+
+    }
+$mysql->desconectar();//funcion llamada desde mysql.php
+?>
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -56,16 +89,18 @@
                     <div class="login-content">
 
                         <div class="login-form">
-                            <form action="gestion_estudiantes.php" method="post">
+                            <form action="controlador/update_estudiante.php" method="post">
                                 <div class="form-group">
+                                     <input class="au-input au-input--full" type="hidden"  name="id" placeholder="Editorial" value="<?php echo $id ?>">
+
                                     <label>Nombre Completo</label>
-                                    <input class="au-input au-input--full" type="text" name="nombre" placeholder="Nombre">
+                                    <input class="au-input au-input--full" type="text" name="nombre" placeholder="Nombre" value="<?php echo $nombre ?>">
                                 
                                     <label>Apellido Completo</label>
-                                    <input class="au-input au-input--full" type="text" name="apellido" placeholder="Apellido">
+                                    <input class="au-input au-input--full" type="text" name="apellido" placeholder="Apellido" value="<?php echo $apellido ?>">
                                 
                                     <label>Contraseña</label>
-                                    <input class="au-input au-input--full" type="text" name="contraseña" placeholder="Contraseña">
+                                    <input class="au-input au-input--full" type="text" name="contraseña" placeholder="Contraseña" value="">
                                     
                                     <label>Tipo Documento</label>
                                     <select name="tipo_documento" disabled="">
@@ -87,7 +122,7 @@
                                     <input class="au-input au-input--full" type="text" name="documento" placeholder="Documento" disabled="">
                                 
                                     <label>Estado Civil</label>
-                                        <select name="estado_civil">
+                                        <select name="estado_civil" value="<?php echo $estado ?>">
                                         <option value="0">Seleccione:</option>
                                             <?php
                                           //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
@@ -117,7 +152,7 @@
                                       </select>
                                 </div>
 
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Actualizar Estudiante</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="actualizar">Actualizar Estudiante</button>
                                 
                             </form>
                         </div>

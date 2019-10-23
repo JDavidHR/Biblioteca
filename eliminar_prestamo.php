@@ -62,6 +62,7 @@
                             <form action="controlador/delete_prestamo.php" method="POST">
                                 <h1 align="center" class="au-input au-input--full">Bienvenido Bibliotecario</h1>
                                 <br>
+                                <center>
                                 <label>seleccione el prestamo a eliminar</label>
                                 <br>
                                 <select name="seleccion_prestamo">
@@ -71,14 +72,14 @@
                                           while ($valores1 = mysqli_fetch_assoc($seleccionprestamo)) {
                                             ?>
                                             <!--se traen los datos a mostrar en el select-->
-                                            <option value="<?php echo $valores1['estudiantes_id_estudiante']?>"><?php echo $valores1['nombre']?></option>';
+                                            <option value="<?php echo $valores1['id_estudiante']?>"><?php echo $valores1['nombre']?></option>';
                                             <?php
                                           }
                                         ?>
                                 </select>
                                 <br><br>
                                 <button type="submit" name="eliminar" class="au-btn au-btn--block au-btn--green m-b-20">Eliminar prestamo</button>
-
+                                </center>
                             </form>
                         </div>
                     </div>

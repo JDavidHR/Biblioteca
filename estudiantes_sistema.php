@@ -1,16 +1,4 @@
 <!DOCTYPE html>
-<?php
-//funcion php
-
-    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
-    $mysql = new MySQL; //se crea un nuevo musql
-    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
-  //consulta y funcion almacenada en la variable declarada
-$seleccionprograma =$mysql->efectuarConsulta("SELECT biblioteca3.programa.id_programa,biblioteca3.programa.programa
-from programa where estado = 1");
-
-$mysql->desconectar();//funcion llamada desde mysql.php
-?>
 <html lang="en">
 
 <head>
@@ -22,7 +10,7 @@ $mysql->desconectar();//funcion llamada desde mysql.php
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Gestion Programa</title>
+    <title>Gestion Estudiantes</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -48,26 +36,51 @@ $mysql->desconectar();//funcion llamada desde mysql.php
 </head>
 
 <body class="animsition"><!--cuerpo de la pagina-->
+<?php
+//funcion php 
 
+    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
+
+    $mysql = new MySQL; //se crea un nuevo musql
+
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+
+
+//consulta y funcion almacenada en una variable declarada
+$seleccionestudiante =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.numero_documento,biblioteca3.estudiantes.nombre,biblioteca3.estudiantes.apellido,biblioteca3.programa.programa,biblioteca3.estado_civil.estado,biblioteca3.tipo_documento.tipo
+from estudiantes
+join estudiantes
+on biblioteca3.estudiantes.id_estudiante = biblioteca3.prestamos.estudiantes_id_estudiante
+join programa 
+on biblioteca3.programa.id_programa = biblioteca3.estudiantes.programa_id_programa
+join estado_civil
+on biblioteca3.estado_civil.id_estado = biblioteca3.estudiantes.estado_civil_id_estado");
+
+
+
+   
+$mysql->desconectar();//funcion llamada desde mysql.php
+
+?>
     <div class="page-wrapper">
 
 
         <!-- MENU SIDEBAR-->
-           <?php
-           //funcion php donde se llama al menu superior del bibliotecario
-            include("header_usuario_menu_lateral_bibliotecario.php");
-           ?>
+        <?php
+        //funcion php donde se encuentra el menu superior de la pagina del bibliotecario
+           include("header_usuario_menu_lateral_bibliotecario.php");
+          ?>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
-          <?php
-          //funcion php donde se llama al menu lateral del bibliotecario
+        <?php
+        //funcion php donde se encuentra el menu lateral del bibliotecario
 
           include("header_usuario_menu_cierre_bibliotecario.php");
-          ?>    
+          ?> 
             </header>
             <!-- HEADER DESKTOP-->
 
@@ -77,23 +90,31 @@ $mysql->desconectar();//funcion llamada desde mysql.php
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-5-lg-5">
+                            <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
                                     <!--creacion de la tabla-->
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead><!--cabecera de la tabla-->
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Programas</th>
+                                                <th>Numero Documento</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th>Programa Cursa</th>
+                                                <th>Estado Civil</th>
+                                                
                                             </tr>
                                         </thead><!--fin cabecera de la tabla-->
                                         <tbody><!--cuerpo de la tabla-->
                                         <?php
-                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
-                                           while ($resultado=mysqli_fetch_assoc($seleccionprograma)) {
+                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos 
+                                           while ($resultado=mysqli_fetch_assoc($seleccionestudiante)) {
                                                 echo '<tr>
-                                                <td>'.$id_programa=$resultado['id_programa'].'</td>
+                                                <td>'.$numero_documento=$resultado['numero_documento'].'</td>
+                                                <td>'.$nombre=$resultado['nombre'].'</td>
+                                                <td>'.$apellido=$resultado['apellido'].'</td>
                                                 <td>'.$programa=$resultado['programa'].'</td>
+                                                <td>'.$estado=$resultado['estado'].'</td>
+                                                
                                                 <tr>';
                                             }
                                         ?>
@@ -101,16 +122,16 @@ $mysql->desconectar();//funcion llamada desde mysql.php
                                     </table><!--fin tabla-->
                                 </div>
                             </div>
-                            <!--creacion de la etiqueta como funcion de boton donde se redireccionaran las paginas-->
-                             <a href="eliminar_programa.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Eliminar Programa</a>
+                            <!--creacion de la etiqueta como funcion de boton para redireccion de las paginas-->
+                             <a href="eliminar_estudiante.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Eliminar Estudiante</a>
 
-                              <a href="actualizar_programa.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Actualizar Programa</a>
+                              <a href="actualizar_estudiante.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Actualizar Estudiante</a>
 
-                               <a href="anadir_programa.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Añadir Programa</a>
+                               <a href="register_usuario.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Añadir Estudiante</a>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
-                                    <?php//funcion php donde se llama al cuerpo de la pagina
+                                    <?php//funcion php donde se llama al footer de la pagina
                                     include("footer.php");
                                     ?>
                                 </div>
@@ -137,7 +158,7 @@ $mysql->desconectar();//funcion llamada desde mysql.php
     </script>
     <!-- Main JS-->
     <script src="js/main.js"></script>
-</body><!--fin cuerpo de la pagina-->
+</body>
 
 </html>
 <!-- end document-->

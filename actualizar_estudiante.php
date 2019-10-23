@@ -70,7 +70,7 @@
                                           while ($valores1 = mysqli_fetch_assoc($seleccionestudiante)) {
                                             ?>
                                             <!--se traen los datos a mostrar en el select-->
-                                            <option value=""><?php echo $valores1 ['nombre']?> 
+                                            <option value="<?php echo $valores1 ['id_estudiante']?> "><?php echo $valores1 ['nombre']?> 
                                             </option>;
                                             <?php
                                           }
