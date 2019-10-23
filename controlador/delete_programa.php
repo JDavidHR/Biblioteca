@@ -37,7 +37,7 @@ header("refresh:2;url=../gestion_programa.php");
 //echo"<script type=\"text/javascript\">alert('Se produjo un error'); window.location='../eliminar_programa.php';</script>";
 echo"<div class=\"alert alert-danger  role=\"alert\"><a href=\"../eliminar_programa.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>!Se produjo un error!</strong></div>";
 
-header("refresh:1;url=../gestion_programa.php");	
+header("refresh:1;url=../eliminar_programa.php");	
 }
 ?>
 </div>
