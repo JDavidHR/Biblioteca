@@ -11,15 +11,12 @@
 $id = $_POST['seleccionestudiante'];
 
 
-$mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.nombre,biblioteca3.estudiantes.apellido,biblioteca3.programa.programa,biblioteca3.estado_civil.estado,biblioteca3.estudiantes.contrasena
-from prestamos
-join estudiantes
-on biblioteca3.estudiantes.id_estudiante = biblioteca3.prestamos.estudiantes_id_estudiante
-join programa 
-on biblioteca3.programa.id_programa = biblioteca3.estudiantes.programa_id_programa 
-join estado_civil
-on biblioteca3.estado_civil.id_estado = biblioteca3.estudiantes.estado_civil_id_estado WHERE biblioteca3.estudiantes.id_estudiante = ".$id."");
-
+$mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.nombre,biblioteca3.estudiantes.apellido,biblioteca3.programa.programa,biblioteca3.estado_civil.estado,biblioteca3.estudiantes.contrasena,biblioteca3.estudiantes.numero_documento,biblioteca3.tipo_documento.tipo
+ from estudiantes 
+join tipo_documento on biblioteca3.tipo_documento.id_tipo = biblioteca3.estudiantes.tipo_documento_id_tipo 
+join programa on biblioteca3.programa.id_programa = biblioteca3.estudiantes.programa_id_programa 
+join estado_civil on biblioteca3.estado_civil.id_estado = biblioteca3.estudiantes.estado_civil_id_estado 
+WHERE biblioteca3.estudiantes.id_estudiante = ".$id."");
 
 
 //se inicia el recorrido para mostrar los datos de la BD
