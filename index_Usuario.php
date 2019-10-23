@@ -48,8 +48,7 @@
 
    //consulta y funcion almacenada en la variabloe declarada
 $seleccionlibro =$mysql->efectuarConsulta("SELECT biblioteca3.libros.id_libro,biblioteca3.libros.titulo_libro,biblioteca3.libros.editorial,biblioteca3.libros.autor, biblioteca3.libros.fecha_publicacion
-from libros
-join estudiantes");
+from libros where biblioteca3.libros.estado = 1");
    
 $mysql->desconectar();//funcion llamada desde mysql.php
 
