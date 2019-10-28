@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+ require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
 
+    $mysql = new MySQL; //se crea un nuevo musql
+
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+
+//declaracion de variables metodo post
+$id = $_REQUEST['seleccionbibliotecario'];
+
+
+$mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.bibliotecario.nombre,biblioteca3.bibliotecario.apellido,biblioteca3.estado_civil.estado,biblioteca3.bibliotecario.numero_documento,biblioteca3.tipo_documento.tipo
+ from bibliotecario 
+join tipo_documento on biblioteca3.tipo_documento.id_tipo = biblioteca3.bibliotecario.tipo_documento_id_tipo 
+join estado_civil on biblioteca3.estado_civil.id_estado = biblioteca3.bibliotecario.estado_civil_id_estado 
+WHERE biblioteca3.bibliotecario.id_bibliotecario = ".$id."");
+
+
+
+//se inicia el recorrido para mostrar los datos de la BD
+while ($valores1 = mysqli_fetch_assoc($mostrardatos)){
+//declaracion de variables
+$nombre = $valores1['nombre'];
+$apellido = $valores1['apellido'];
+$estado = $valores1['estado'];
+$documento = $valores1['numero_documento'];
+$tipo = $valores1['tipo'];
+
+    }
+$mysql->desconectar();//funcion llamada desde mysql.php
+?>
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -44,8 +74,7 @@
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
     //ejecicion de las diferentes consultas
     $seleccionestado =$mysql->efectuarConsulta("SELECT biblioteca3.estado_civil.id_estado, biblioteca3.estado_civil.estado from estado_civil");
-     $selecciondocumento =$mysql->efectuarConsulta("SELECT biblioteca3.tipo_documento.id_tipo,biblioteca3.tipo_documento.tipo from tipo_documento");
-
+    $selecciondocumento =$mysql->efectuarConsulta("SELECT biblioteca3.tipo_documento.id_tipo,biblioteca3.tipo_documento.tipo from tipo_documento");
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>
     <div class="page-wrapper">
@@ -55,38 +84,22 @@
                     <div class="login-content">
 
                         <div class="login-form">
-                            <form action="gestion_estudiantes.php" method="post">
+                            <form action="controlador/update_bibliotecario.php" method="post">
                                 <div class="form-group">
+                                   <input class="au-input au-input--full" type="hidden"  name="id" placeholder="Editorial" value="<?php echo $id ?>">
+
                                     <label>Nombre Completo</label>
-                                    <input class="au-input au-input--full" type="text" name="nombre" placeholder="Nombre">
+                                    <input class="au-input au-input--full" type="text" name="nombre" placeholder="Nombre" value="<?php echo $nombre ?>">
                                 
                                     <label>Apellido Completo</label>
-                                    <input class="au-input au-input--full" type="text" name="apellido" placeholder="Apellido">
-                                
-                                    <label>Contraseña</label>
-                                    <input class="au-input au-input--full" type="text" name="contraseña" placeholder="Contraseña">
-                                    
-                                    <label>Tipo Documento</label>
-                                    <select name="tipo_documento" disabled="">
-                                        <option value="0">Seleccione:</option>
-                                        <?php
-                                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
-                                          while ($valores1 = mysqli_fetch_assoc($selecciondocumento)) {
-                                            ?>
-                                            <!--se traen los datos a mostrar en el select-->
-                                            <option value="<?php echo $valores1['id_tipo']?>"><?php echo $valores1['tipo']?></option>';
-                                            <?php
-                                          }
-                                        ?>
-                                        
-                                      </select>
+                                    <input class="au-input au-input--full" type="text" name="apellido" placeholder="Apellido" value="<?php echo $apellido ?>">
 
 
-                                    <label>Documento</label>
-                                    <input class="au-input au-input--full" type="text" name="documento" placeholder="Documento" disabled="">
+                                       <label>Documento</label>
+                                    <input class="au-input au-input--full" type="text" name="documento" placeholder="Documento" disabled="" value="<?php echo $documento ?>">
                                 
                                     <label>Estado Civil</label>
-                                        <select name="estado_civil">
+                                        <select name="estado_civil" value="<?php echo $estado ?>">
                                         <option value="0">Seleccione:</option>
                                             <?php
                                           //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
@@ -97,12 +110,11 @@
                                             <?php
                                           }
                                         ?>
-
-                                      </select>
+                                        </select>
 
                                 </div>
 
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Actualizar Bibliotecario</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="actualizar">Actualizar Bibliotecario</button>
                                 
                             </form>
                         </div>

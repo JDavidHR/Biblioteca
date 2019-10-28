@@ -43,7 +43,7 @@
 
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
     //ejecicion de las diferentes consultas
-    $seleccionbibliotecario =$mysql->efectuarConsulta("SELECT biblioteca3.bibliotecario.id_bibliotecario,biblioteca3.bibliotecario.nombre from bibliotecario");
+    $seleccionbibliotecario =$mysql->efectuarConsulta("SELECT biblioteca3.bibliotecario.id_bibliotecario,biblioteca3.bibliotecario.nombre from bibliotecario where biblioteca3.bibliotecario.estado = 1");
 
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>
@@ -58,19 +58,19 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="actualizar_estudiante_part2.php" method="POST">
+                            <form action="actualizar_bibliotecario_part2.php" method="POST">
                                 <h1 align="center" class="au-input au-input--full">Bienvenido Bibliotecario</h1>
                                 <br>
                                 <center>
-                                <label>Seleccione el estudiante a actualizar</label>
+                                <label>Seleccione el bibliotecario a actualizar</label>
                                 <br>
-                                <select name="seleccionestudiante">
+                                <select name="seleccionbibliotecario">
                                         <?php
                                           //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
                                           while ($valores1 = mysqli_fetch_assoc($seleccionbibliotecario)) {
                                             ?>
                                             <!--se traen los datos a mostrar en el select-->
-                                            <option value=""><?php echo $valores1 ['nombre']?> 
+                                            <option value=<?php echo $valores1 ['id_bibliotecario']?>><?php echo $valores1 ['nombre']?> 
                                             </option>;
                                             <?php
                                           }
