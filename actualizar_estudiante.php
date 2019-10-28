@@ -43,7 +43,7 @@
 
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
     //ejecicion de las diferentes consultas
-    $seleccionestudiante =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.id_estudiante,biblioteca3.estudiantes.nombre from estudiantes");
+    $seleccionestudiante =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.id_estudiante,biblioteca3.estudiantes.nombre from estudiantes  where biblioteca3.estudiantes.estado = 1");
 
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>
