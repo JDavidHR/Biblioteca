@@ -27,6 +27,9 @@
                                 <li>
                                     <a href="gestion_programa.php">Gestionar Programas</a>
                                 </li>
+                                <li>
+                                    <a href="controlador/backup.php">Backup</a>
+                                </li>
                             </ul>
                         </li>
 
