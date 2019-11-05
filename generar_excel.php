@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>registro</title>
+    <title>Home</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -35,13 +35,101 @@
 
 </head>
 
-<body><!--cuerpo-->
-    
-    <div class="row">
-        <div class="col text-center">
-            <a href="controlador/validacion_excel.php"><!--redireccion al controlador-->
-                Generar Excel/XLS
-            </a>
+<body class="animsition"><!--cuerpo de la pagina-->
+    <?php //funcion php
+    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
+
+    $mysql = new MySQL; //se crea un nuevo musql
+
+    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
+
+    //ejecicion de las diferentes consultas
+    $seleccionestudiante =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.id_estudiante, biblioteca3.estudiantes.nombre from estudiantes");
+
+    $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
+    ?>
+    <div class="page-wrapper">
+
+
+        <!-- MENU SIDEBAR-->
+          <?php 
+          //funcion php donde se encuentra el menu lateral del bibliotecario
+                    include("header_usuario_menu_lateral_bibliotecario.php");
+          ?>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+          <?php
+          //funcion php donde se encuentra el menu superior del bibliotecario
+
+          include("header_usuario_menu_cierre_bibliotecario.php");
+          ?>    
+            </header>
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12"><!--informacion mostrada en la pagina del bibliotecario-->
+                                <form action="controlador/reporte_excel.php" method="POST">
+                                    <center>
+                                    <select name="seleccionestudiante">
+                                        <?php
+                                            //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                             while ($valores1 = mysqli_fetch_assoc($seleccionestudiante)) {
+                                        ?>
+                                                <!--se traen los datos a mostrar en el select-->
+                                              <option value="<?php echo $valores1 ['id_estudiante']?> "><?php echo $valores1 ['nombre']?> 
+                                              </option>;
+                                        <?php
+                                                }
+                                        ?>
+                                    </select>
+                                    <button type="submit" name="generar" class="au-btn au-btn--block au-btn--green m-b-20">Generar Excel</button>
+                                    </center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                   <?php
+                                   //funcion php donde se llama al footer de la pagina
+                                    include("footer.php");
+                                   ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
         </div>
+
     </div>
-</body><!--fin cuerpo-->
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    </script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    </script>
+    </script>
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+</body><!--fin cuerpo de la pagina-->
+
+</html>
+<!-- end document-->
