@@ -30,6 +30,9 @@
                                 <li>
                                     <a href="controlador/backup.php">Backup</a>
                                 </li>
+                                <li>
+                                    <a href="generar_excel.php">Reporte Excel</a>
+                                </li>
                             </ul>
                         </li>
 
