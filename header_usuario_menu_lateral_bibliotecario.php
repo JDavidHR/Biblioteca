@@ -10,7 +10,7 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-home"></i>Inicio</a>
+                                <i class="fas fa-home"></i>Menu Bibliotecario</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list"><!--opciones del menu con su respectiva redireccion-->
                                 <li>
                                     <a href="inventario_Bibliotecario.php">Gestionar Inventario</a>
@@ -32,6 +32,9 @@
                                 </li>
                                 <li>
                                     <a href="generar_excel.php">Reporte Excel</a>
+                                </li>
+                                <li>
+                                    <a href="index.php">Correo Informativo</a>
                                 </li>
                             </ul>
                         </li>
