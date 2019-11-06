@@ -19,7 +19,7 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all"> 
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -76,7 +76,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12"><!--informacion mostrada en la pagina del bibliotecario-->
-                                <form action="controlador/reporte_excel.php" method="POST">
+                                <form action="controlador\reportes\reporte_excel_usuariocualquiera.php" method="POST">
                                     <center>
                                     <select name="seleccionestudiante">
                                         <?php
