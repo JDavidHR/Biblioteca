@@ -99,7 +99,7 @@ $mysql->desconectar();//funcion llamada desde mysql.php
                                     <input class="au-input au-input--full" type="text" name="apellido" placeholder="Apellido" value="<?php echo $apellido ?>">
                                 
                                     <label>Contraseña</label>
-                                    <input class="au-input au-input--full" type="text" name="contrasena" placeholder="Contraseña" value="">
+                                    <input class="au-input au-input--full" type="text" name="contrasena" placeholder="Contraseña" value="" disabled="">
                                     
                                     <label>Tipo Documento</label>
                                     <select name="tipo_documento" disabled="">
