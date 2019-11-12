@@ -68,13 +68,23 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
-                                    
+                                    <center>
+                                    <label>Diagrama de Barras</label>
                                 <?php
                                 //funcion php del menu lateral del bibliotecario
 
                                   include("graficos.php");
                                   ?>  
-                       
+                        
+
+
+                                    <label>Diagrama Circular</label>
+                                <?php
+                                //funcion php del menu lateral del bibliotecario
+
+                                  include("pie.php");
+                                  ?>
+                                  </center>
                                 </div>
                             </div>
                             

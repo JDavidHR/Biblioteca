@@ -71,7 +71,7 @@
                                     <input class="au-input au-input--full" type="text" name="apellido" placeholder="Apellido" onkeypress="return soloLetras(event)">
                                 
                                     <label>Contraseña</label>
-                                    <input class="au-input au-input--full" type="password" name="contraseña" placeholder="Contraseña">
+                                    <input class="au-input au-input--full" type="password" name="contrasena" placeholder="Contraseña">
                                     
                                     <label>Tipo Documento</label>
 

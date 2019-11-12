@@ -54,7 +54,6 @@
             <header class="header-desktop">
           <?php
           //funcion php donde se llama al menu lateral del bibliotecario
-
           include("header_usuario_menu_cierre_bibliotecario.php");
           ?>    
             </header>
@@ -73,9 +72,9 @@
                             <!--creacion de la etiqueta como funcion de boton donde se redireccionaran las paginas-->
                              <a href="generar_excel2.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Prestamos Estudiante por Programa</a>
 
-                              <a href="reporte_excel_fechaprestamo.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Fecha Prestamo</a>
+                              <a href="controlador/reportes/reporte_excel_fechaprestamo.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Fecha Prestamo</a>
 
-                               <a href="reporte_excel_fechasanteriores.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Fechas Anteriores</a>
+                               <a href="controlador/reportes/reporte_excel_fechasanteriores.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Fechas Anteriores</a>
 
                                <a href="generar_excel.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Prestamos Usuario Cualquiera</a>
                         <div class="row">

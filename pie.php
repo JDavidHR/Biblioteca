@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Graficos</title>
-
-
-<link href="css/grafico_barra.css" rel="stylesheet" media="all">
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/Chart.js"></script>
-
-
-</head>
-<body>
-
-    <div id="chart-container">
-        <canvas id="graphCanvas"></canvas>
+        <div id="chart-container">
+        <canvas id="oilChart"></canvas>
     </div>
     <br>
 
     <div id="chart-container1">
-        <canvas id="graphCanvas1"></canvas>
+        <canvas id="oilChart1"></canvas>
     </div>
 
     <script>
         $(document).ready(function () {
-            showGraph();
+            showGraph1();
         });
         
 
 
-        function showGraph()
+        function showGraph1()
         {
             {
                 $.post("validacion_graficos.php",
@@ -45,22 +31,27 @@
 
                     var chartdata = {
                         labels: estado,
+                        data: [133.3, 86.2, 52.2],
                         datasets: [
                             {
                                 label: 'Estudiantes',
-                                backgroundColor: '#3377FF',
-                                borderColor: '#46d5f1',
-                                hoverBackgroundColor: '#CCCCCC',
+                                backgroundColor: [
+                                                    "#FF4F33",
+                                                    "#FFCA33",
+                                                    "#337DFF"
+                                                ],
+                                borderColor: '#CCCCC',
+                                hoverBackgroundColor: '#CCCCC',
                                 hoverBorderColor: '#666666',
                                 data: cantidad
                             }
                         ]
                     };
 
-                    var graphTarget = $("#graphCanvas");
+                    var graphTarget = $("#oilChart");
 
-                    var barGraph = new Chart(graphTarget, {
-                        type: 'bar',
+                    var pieGraph = new Chart(graphTarget, {
+                        type: 'pie',
                         //doughnut
                         data: chartdata
                     });
@@ -69,20 +60,3 @@
         }
 
         </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-</body>
-</html>
