@@ -37,7 +37,7 @@
                                     <a href="#">Reporte PDF</a>
                                 </li>
                                 <li>
-                                    <a href="#">Reporte Grafico</a>
+                                    <a href="prueba_graficos.php">Reporte Grafico</a>
                                 </li>
                                 <li>
                                     <a href="index.php">Correo Informativo</a>
