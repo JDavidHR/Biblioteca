@@ -34,6 +34,12 @@
                                     <a href="generar_excel.php">Reporte Excel</a>
                                 </li>
                                 <li>
+                                    <a href="#">Reporte PDF</a>
+                                </li>
+                                <li>
+                                    <a href="#">Reporte Grafico</a>
+                                </li>
+                                <li>
                                     <a href="index.php">Correo Informativo</a>
                                 </li>
                             </ul>
