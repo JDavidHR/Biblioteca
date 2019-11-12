@@ -17,11 +17,11 @@
 <?php
 require_once '../modelo/MySQL.php'; //llamado de pagina donde se encuentra la conexion a la BD
 //condicion donde se rectifica que los campos no esten vacios y que esten definidos
-if(isset($_POST['registrar']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['contraseña']) && !empty($_POST['tipo_documento']) && !empty($_POST['documento']) && !empty($_POST['estado_civil']) && !empty($_POST['programa'])){
+if(isset($_POST['registrar']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['contrasena']) && !empty($_POST['tipo_documento']) && !empty($_POST['documento']) && !empty($_POST['estado_civil']) && !empty($_POST['programa'])){
         //declaracion de variables, llamadas por el metodo post
         $nombre=$_POST["nombre"];
         $apellido=$_POST["apellido"];
-        $pass=md5($_POST["contraseña"]);
+        $pass=md5($_POST["contrasena"]);
         $documento=$_POST["tipo_documento"];
         $ndocumento=$_POST["documento"];
         $estado=$_POST["estado_civil"];
@@ -60,7 +60,7 @@ if(isset($_POST['registrar']) && !empty($_POST['nombre']) && !empty($_POST['apel
             header("refresh:1;url=../gestion_estudiantes.php");
     }
 }
-
+}
 
 ?>
 </div>
@@ -68,3 +68,4 @@ if(isset($_POST['registrar']) && !empty($_POST['nombre']) && !empty($_POST['apel
     <script src="../js/main.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 </body>
+</html>

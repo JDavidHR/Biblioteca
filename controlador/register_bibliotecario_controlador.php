@@ -60,7 +60,7 @@ if(isset($_POST['registrarb']) && !empty($_POST['nombreb']) && !empty($_POST['ap
 
     }
 }
-
+}
 ?>
 </div>
     <!-- Main JS-->
