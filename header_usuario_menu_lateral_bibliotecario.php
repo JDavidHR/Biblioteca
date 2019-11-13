@@ -34,7 +34,7 @@
                                     <a href="reporte_excel.php">Reporte Excel</a>
                                 </li>
                                 <li>
-                                    <a href="#">Reporte PDF</a>
+                                    <a href="reporte_pdf.php">Reporte PDF</a>
                                 </li>
                                 <li>
                                     <a href="prueba_graficos.php">Reporte Grafico</a>
