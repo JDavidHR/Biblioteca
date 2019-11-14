@@ -63,7 +63,7 @@
     //creacion del backup de la base de datos
      public function crearBackup(){
         include '../controlador/function.php';
-        backDb($this->$host, $this->$user, $this->$pass, $this->$dbname);
+        backDb($this->ipServidor, $this->$$usuarioBase, $this->$contrasena, $this->$bd);
     }
 }
 
