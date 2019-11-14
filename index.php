@@ -104,7 +104,6 @@
                                             
                                         </div>
                                         <div class="contact-enviar">
-                                            <br>
                                           <input type="submit" value="Enviar mensaje" name="send">
                                         </div>
                                         <div class="clear"> </div>
