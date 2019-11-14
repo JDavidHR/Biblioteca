@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="librerias/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="librerias/datatable/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="librerias/datatable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="librerias/alertify/css/alertify.css">
+    <link rel="stylesheet" type="text/css" href="librerias/alertify/css/themes/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="librerias/fontawesome/css/font-awesome.css">
+
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Home</title>
-
+    <title>Gestion Programa</title>
+    <?php require_once "scripts.php";  ?>
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
@@ -19,7 +28,9 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" href="librerias/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="librerias/datatable/bootstrap.css">
+    
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -36,23 +47,7 @@
 </head>
 
 <body class="animsition"><!--cuerpo de la pagina-->
-     <?php
-     //funcion php
 
-    require_once 'modelo/MySQL.php';//llamamos a la pagina mysql.php donde se encuentra la conexion a la base de datos
-
-    $mysql = new MySQL; //se crea un nuevo musql
-
-    $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
-
-
-   //consulta y funcion almacenada en la variabloe declarada
-$seleccionlibro =$mysql->efectuarConsulta("SELECT biblioteca3.libros.id_libro,biblioteca3.libros.titulo_libro,biblioteca3.libros.editorial,biblioteca3.libros.autor, biblioteca3.libros.fecha_publicacion
-from libros where biblioteca3.libros.estado = 1");
-   
-$mysql->desconectar();//funcion llamada desde mysql.php
-
-?>
     <div class="page-wrapper">
 
 
@@ -77,40 +72,30 @@ $mysql->desconectar();//funcion llamada desde mysql.php
             <!-- MAIN CONTENT-->
             <!-- MAIN CONTENT-->
             <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
+                
+                            <div class="col-5-lg-5">
                                 <div class="table-responsive table--no-card m-b-30">
-                                    <table class="table table-borderless table-striped table-earning"><!--creacion de la tabla-->
-                                        <thead><!--cabecera de la tabla-->
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Titulo</th>
-                                                <th>Editorial</th>
-                                                <th >Autor</th>
-                                                <th >Fecha</th>
-                                            </tr>
+                                    <!--creacion de la tabla-->
+                                        <div class="container ">
+                                            <div class="row ">
+                                                <div class="col-sm-12">
+                                                    <div class="card text-left">
+                                                        <div class="card-header">
+                                                            Libros Disponibles
+                                                        </div>
+                                                        <div class="card-body">
+                                                            
+                                                        
+                                                            <div id="tablaDatatable"></div>
+                                                        </div>
+                                                        <div class="card-footer text-muted">
+                                                            <!--footer-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                            
-                                        </thead><!--fin cabecera de la tabla-->
-
-                                        <tbody><!--cuerpo de la tabla-->
-                                          <?php
-                                          //funcion php donde se hace el recorrido para mostrar los datos correspondientes del libro
-                                           while ($resultado=mysqli_fetch_assoc($seleccionlibro)) {
-                                                echo '<tr>
-                                                <td>'.$id=$resultado['id_libro'].'</td>
-                                                <td>'.$titulo=$resultado['titulo_libro'].'</td>
-                                                <td>'.$editorial=$resultado['editorial'].'</td>
-                                                <td>'.$autor=$resultado['autor'].'</td>
-                                                <td>'.$fecha=$resultado['fecha_publicacion'].'</td>
-                                                <tr>';
-                                            }
-                                        ?>
-                                        </tbody><!--fin cuerpo de la tabla-->
-
-                                    </table>
                                 </div>
                             </div>
 
@@ -131,21 +116,28 @@ $mysql->desconectar();//funcion llamada desde mysql.php
 
     </div>
 
-   <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
+  <!-- Jquery JS-->
+    <script src="librerias/jquery.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="librerias/bootstrap/popper.min.js"></script>
+    <script src="librerias/bootstrap/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
     </script>
+    <script src="librerias/datatable/jquery.dataTables.min.js"></script>
+    <script src="librerias/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="librerias/alertify/alertify.js"></script>
+
     <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    </script>
-    </script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+
     <!-- Main JS-->
+
     <script src="js/main.js"></script>
 </body><!--fin cuerpo de la pagina-->
-
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#tablaDatatable').load('tablas/tabla_gestion_lib_usu.php');
+    });
+</script>
 </html>
 <!-- end document-->
