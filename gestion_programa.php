@@ -146,7 +146,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $('#tablaDatatable').load('tabla.php');
+        $('#tablaDatatable').load('tablas/tabla_gestion_programas.php');
     });
 </script>
 
