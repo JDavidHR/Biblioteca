@@ -16,7 +16,7 @@
     <meta name="keywords" content="" />
 
     <!-- Title Page-->
-    <title>Gestion Estudiantes</title>
+    <title>Correo Informativo</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -77,8 +77,8 @@
                                 <div class="contact-main">
                                     <!--creacion de la tabla-->
                                     <form method="post">
-                                        <h3>Correo Electrónico</h3>
-                                        <input type="email" placeholder="your@email.com" class="hola"  name="customer_email" required />
+                                        <h3>Correo Electrónico</h3><br>
+                                        <input type="email" placeholder="your@email.com" class="hola"  name="customer_email" required >
                                         <?php
                                             if (isset($_POST['send'])){
                                                 include("sendemail.php");//Mando a llamar la funcion que se encarga de enviar el correo electronico
@@ -104,6 +104,7 @@
                                             
                                         </div>
                                         <div class="contact-enviar">
+                                            <br>
                                           <input type="submit" value="Enviar mensaje" name="send">
                                         </div>
                                         <div class="clear"> </div>

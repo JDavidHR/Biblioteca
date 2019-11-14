@@ -66,17 +66,19 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-5-lg-5">
-                                <h1>Reporte en Pdf</h1>
+                                <h1>Reporte en PDF</h1>
+                                <br>
+                                <p>Bienvenido aqu&iacute; podras generar los diversos reportes PDF de tu preferencia<br>A continuaci&oacute;n podra seleccionar la opcion deseada.</p>
                                 <br>
                             </div>
                             <!--creacion de la etiqueta como funcion de boton donde se redireccionaran las paginas-->
-                             <a href="generar_pdf.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Fecha Del Prestamo</a>
+                             <center><a href="generar_pdf.php" class="au-btn au-btn-- au-btn--green m-b-20" style="text-align: center;">Fecha Del Prestamo</a>
 
-                              <a href="generar_pdf2.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Prestamo Usuario Cualquiera</a>
+                              <a href="generar_pdf2.php" class="au-btn au-btn-- au-btn--green m-b-20" style="text-align: center;">Prestamo Usuario Cualquiera</a>
 
-                               <a href="generar_pdf3.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Prestamo Con Fechas Anteriores</a>
+                               <a href="generar_pdf3.php" class="au-btn au-btn-- au-btn--green m-b-20" style="text-align: center;">Prestamo Con Fechas Anteriores</a>
 
-                               <a href="generar_pdf4.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Prestamo Para Cualquier Programa</a>
+                               <a href="generar_pdf4.php" class="au-btn au-btn--block au-btn--green m-b-20" style="text-align: center;">Prestamo Para Cualquier Programa</a></center>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
