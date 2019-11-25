@@ -11,7 +11,7 @@ var $lineHeight;
 function Header()
 {
     // Logo
-    $this->Image('../image/log1.png',10,5,70);
+    $this->Image('../image/log1.PNG',10,5,70);
     // Arial bold 15
     $this->SetFont('Arial','B',15);
     $this->Ln(8);

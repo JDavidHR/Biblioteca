@@ -5,14 +5,14 @@ require_once "../modelo/MySQL.php";
 $obj= new MySQL();
 $conexion=$obj->conectar();
 
-$sql="SELECT biblioteca3.estudiantes.numero_documento,biblioteca3.estudiantes.nombre,biblioteca3.estudiantes.apellido,biblioteca3.programa.programa,biblioteca3.libros.titulo_libro
+$sql="SELECT id11714256_biblioteca3.estudiantes.numero_documento,id11714256_biblioteca3.estudiantes.nombre,id11714256_biblioteca3.estudiantes.apellido,id11714256_biblioteca3.programa.programa,id11714256_biblioteca3.libros.titulo_libro
 from prestamos
 join estudiantes
-on biblioteca3.estudiantes.id_estudiante = biblioteca3.prestamos.estudiantes_id_estudiante
+on id11714256_biblioteca3.estudiantes.id_estudiante = id11714256_biblioteca3.prestamos.estudiantes_id_estudiante
 join programa 
-on biblioteca3.programa.id_programa = biblioteca3.estudiantes.programa_id_programa
+on id11714256_biblioteca3.programa.id_programa = id11714256_biblioteca3.estudiantes.programa_id_programa
 join libros
-on biblioteca3.libros.id_libro = biblioteca3.prestamos.libros_id_libro where biblioteca3.estudiantes.estado = 1";
+on id11714256_biblioteca3.libros.id_libro = id11714256_biblioteca3.prestamos.libros_id_libro where id11714256_biblioteca3.estudiantes.estado = 1";
 $result=mysqli_query($conexion,$sql);
 
 

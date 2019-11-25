@@ -32,7 +32,7 @@ $id = $_POST['id'];
         $mysql = new MySQL;//nuevo mysql
         $mysql->conectar();//funcion almacendad en mysql.php
         //consulta de la insercion de datos en la base de datos, donde hace las respectivas consultas almacenadas en una variable
-        $sql=$mysql->efectuarConsulta("UPDATE biblioteca3.estudiantes SET nombre ='".$nombre."',apellido = '".$apellido."',estado_civil_id_estado =".$estado.",programa_id_programa =".$programa." WHERE id_estudiante = ".$id."");
+        $sql=$mysql->efectuarConsulta("UPDATE id11714256_biblioteca3.estudiantes SET nombre ='".$nombre."',apellido = '".$apellido."',estado_civil_id_estado =".$estado.",programa_id_programa =".$programa." WHERE id_estudiante = ".$id."");
 
 
         //condiciones de redirecionamiento a las respectivas paginas

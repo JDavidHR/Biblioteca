@@ -4,9 +4,9 @@
     
     //Datos de validacion para la conexion
     private $ipServidor ="localhost";
-    private $usuarioBase ='root';
-    private $contrasena = '';
-    private $bd ='biblioteca3';
+    private $usuarioBase ='id11714256_root';
+    private $contrasena = '123456';
+    private $bd ='id11714256_biblioteca3';
 
     private $conexion;
 

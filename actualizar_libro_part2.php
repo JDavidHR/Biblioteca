@@ -10,7 +10,7 @@
 
 //declaracion de variables metodo post
 $id = $_POST['seleccion_libro'];
-$mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.libros.titulo_libro, biblioteca3.libros.editorial, biblioteca3.libros.autor, biblioteca3.libros.fecha_publicacion FROM libros WHERE biblioteca3.libros.id_libro = ".$id."");
+$mostrardatos =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.libros.titulo_libro, id11714256_biblioteca3.libros.editorial, id11714256_biblioteca3.libros.autor, id11714256_biblioteca3.libros.fecha_publicacion FROM libros WHERE id11714256_biblioteca3.libros.id_libro = ".$id."");
 //se inicia el recorrido para mostrar los datos de la BD
  while ($valores1 = mysqli_fetch_assoc($mostrardatos)) {
 //declaracion de variables

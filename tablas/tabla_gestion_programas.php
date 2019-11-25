@@ -5,7 +5,7 @@ require_once "../modelo/MySQL.php";
 $obj= new MySQL();
 $conexion=$obj->conectar();
 
-$sql="SELECT biblioteca3.programa.id_programa,biblioteca3.programa.programa
+$sql="SELECT id11714256_biblioteca3.programa.id_programa,id11714256_biblioteca3.programa.programa
 from programa where estado = 1";
 $result=mysqli_query($conexion,$sql);
 

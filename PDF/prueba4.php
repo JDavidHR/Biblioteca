@@ -11,7 +11,7 @@ $mysql->conectar();//funcion de conectar a la BD ubicada en mysql.php
 
 $id = $_POST['seleccionestudiante'];
 
-$datos = $mysql->efectuarConsulta("SELECT biblioteca3.prestamos.id_prestamo, biblioteca3.estudiantes.nombre, biblioteca3.programa.programa FROM prestamos JOIN estudiantes on biblioteca3.estudiantes.id_estudiante = biblioteca3.prestamos.estudiantes_id_estudiante JOIN programa on biblioteca3.programa.id_programa = biblioteca3.estudiantes.programa_id_programa where biblioteca3.estudiantes.id_estudiante = ".$id."");
+$datos = $mysql->efectuarConsulta("SELECT id11714256_biblioteca3.prestamos.id_prestamo, id11714256_biblioteca3.estudiantes.nombre, id11714256_biblioteca3.programa.programa FROM prestamos JOIN estudiantes on id11714256_biblioteca3.estudiantes.id_estudiante = id11714256_biblioteca3.prestamos.estudiantes_id_estudiante JOIN programa on id11714256_biblioteca3.programa.id_programa = id11714256_biblioteca3.estudiantes.programa_id_programa where id11714256_biblioteca3.estudiantes.id_estudiante = ".$id."");
 
 $mysql->desconectar();
 

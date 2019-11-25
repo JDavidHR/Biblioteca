@@ -11,12 +11,12 @@
 $id = $_REQUEST['seleccionestudiante'];
 
 
-$mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.nombre,biblioteca3.estudiantes.apellido,biblioteca3.programa.programa,biblioteca3.estado_civil.estado,biblioteca3.estudiantes.contrasena,biblioteca3.estudiantes.numero_documento,biblioteca3.tipo_documento.tipo
+$mostrardatos =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.estudiantes.nombre,id11714256_biblioteca3.estudiantes.apellido,id11714256_biblioteca3.programa.programa,id11714256_biblioteca3.estado_civil.estado,id11714256_biblioteca3.estudiantes.contrasena,id11714256_biblioteca3.estudiantes.numero_documento,id11714256_biblioteca3.tipo_documento.tipo
  from estudiantes 
-join tipo_documento on biblioteca3.tipo_documento.id_tipo = biblioteca3.estudiantes.tipo_documento_id_tipo 
-join programa on biblioteca3.programa.id_programa = biblioteca3.estudiantes.programa_id_programa 
-join estado_civil on biblioteca3.estado_civil.id_estado = biblioteca3.estudiantes.estado_civil_id_estado 
-WHERE biblioteca3.estudiantes.id_estudiante = ".$id."");
+join tipo_documento on id11714256_biblioteca3.tipo_documento.id_tipo = id11714256_biblioteca3.estudiantes.tipo_documento_id_tipo 
+join programa on id11714256_biblioteca3.programa.id_programa = id11714256_biblioteca3.estudiantes.programa_id_programa 
+join estado_civil on id11714256_biblioteca3.estado_civil.id_estado = id11714256_biblioteca3.estudiantes.estado_civil_id_estado 
+WHERE id11714256_biblioteca3.estudiantes.id_estudiante = ".$id."");
 
 
 //se inicia el recorrido para mostrar los datos de la BD
@@ -75,9 +75,9 @@ $mysql->desconectar();//funcion llamada desde mysql.php
 
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
     //ejecicion de las diferentes consultas
-    $seleccionestado =$mysql->efectuarConsulta("SELECT biblioteca3.estado_civil.id_estado, biblioteca3.estado_civil.estado from estado_civil");
-    $selecciondocumento =$mysql->efectuarConsulta("SELECT biblioteca3.tipo_documento.id_tipo,biblioteca3.tipo_documento.tipo from tipo_documento");
-    $seleccionprograma =$mysql->efectuarConsulta("SELECT biblioteca3.programa.id_programa,biblioteca3.programa.programa from programa");
+    $seleccionestado =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.estado_civil.id_estado, id11714256_biblioteca3.estado_civil.estado from estado_civil");
+    $selecciondocumento =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.tipo_documento.id_tipo,id11714256_biblioteca3.tipo_documento.tipo from tipo_documento");
+    $seleccionprograma =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.programa.id_programa,id11714256_biblioteca3.programa.programa from programa");
 
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>

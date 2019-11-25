@@ -40,7 +40,7 @@
                                     <a href="prueba_graficos.php">Reporte Grafico</a>
                                 </li>
                                 <li>
-                                    <a href="index.php">Correo Informativo</a>
+                                    <a href="correo.php">Correo Informativo</a>
                                 </li>
                             </ul>
                         </li>

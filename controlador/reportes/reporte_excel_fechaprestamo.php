@@ -14,10 +14,10 @@
 									
 
 //consulta generada para mostrar la fecha del prestamo, nombre del bibliotecario, estudiante y el libro
-$result = mysqli_query($link,"SELECT biblioteca3.prestamos.fecha_prestamo, biblioteca3.bibliotecario.nombre as nombre2, biblioteca3.estudiantes.nombre, biblioteca3.libros.titulo_libro FROM prestamos 
-	join bibliotecario on biblioteca3.bibliotecario.id_bibliotecario = biblioteca3.prestamos.bibliotecario_id_bibliotecario 
-	join estudiantes on biblioteca3.estudiantes.id_estudiante = biblioteca3.prestamos.estudiantes_id_estudiante 
-	join libros on biblioteca3.libros.id_libro = biblioteca3.prestamos.libros_id_libro where biblioteca3.estudiantes.estado = 1");
+$result = mysqli_query($link,"SELECT id11714256_biblioteca3.prestamos.fecha_prestamo, id11714256_biblioteca3.bibliotecario.nombre as nombre2, id11714256_biblioteca3.estudiantes.nombre, id11714256_biblioteca3.libros.titulo_libro FROM prestamos 
+	join bibliotecario on id11714256_biblioteca3.bibliotecario.id_bibliotecario = id11714256_biblioteca3.prestamos.bibliotecario_id_bibliotecario 
+	join estudiantes on id11714256_biblioteca3.estudiantes.id_estudiante = id11714256_biblioteca3.prestamos.estudiantes_id_estudiante 
+	join libros on id11714256_biblioteca3.libros.id_libro = id11714256_biblioteca3.prestamos.libros_id_libro where id11714256_biblioteca3.estudiantes.estado = 1");
 ?>
 
 

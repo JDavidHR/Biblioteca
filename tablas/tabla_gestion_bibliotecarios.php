@@ -5,8 +5,8 @@ require_once "../modelo/MySQL.php";
 $obj= new MySQL();
 $conexion=$obj->conectar();
 
-$sql="SELECT biblioteca3.bibliotecario.numero_documento,biblioteca3.bibliotecario.nombre,biblioteca3.bibliotecario.apellido
-from bibliotecario where biblioteca3.bibliotecario.estado = 1";
+$sql="SELECT id11714256_biblioteca3.bibliotecario.numero_documento,id11714256_biblioteca3.bibliotecario.nombre,id11714256_biblioteca3.bibliotecario.apellido
+from bibliotecario where id11714256_biblioteca3.bibliotecario.estado = 1";
 $result=mysqli_query($conexion,$sql);
 
 

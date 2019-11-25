@@ -29,7 +29,7 @@ if(isset($_POST['añadir']) && !empty($_POST['titulo']) && !empty($_POST['editor
         $mysql = new MySQL;//nuevo mysql
         $mysql->conectar();//funcion almacenada en mysql.php
         //consulta de la insercion de datos en la base de datos, donde hace las respectivas consultas almacenada en un variable declarada y la funcion llamada de mysql.php
-        $sql=$mysql->efectuarConsulta("insert into biblioteca3.libros(titulo_libro,editorial,autor,fecha_publicacion,estado) VALUES ('".$titulo."','".$editorial."','".$autor."','".$fecha."',1)");
+        $sql=$mysql->efectuarConsulta("insert into id11714256_biblioteca3.libros(titulo_libro,editorial,autor,fecha_publicacion,estado) VALUES ('".$titulo."','".$editorial."','".$autor."','".$fecha."',1)");
 
         //condiciones de redirecionamiento a las respectivas paginas
         if($sql){

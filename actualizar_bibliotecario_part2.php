@@ -11,11 +11,11 @@
 $id = $_REQUEST['seleccionbibliotecario'];
 
 
-$mostrardatos =$mysql->efectuarConsulta("SELECT biblioteca3.bibliotecario.nombre,biblioteca3.bibliotecario.apellido,biblioteca3.estado_civil.estado,biblioteca3.bibliotecario.numero_documento,biblioteca3.tipo_documento.tipo
+$mostrardatos =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.bibliotecario.nombre,id11714256_biblioteca3.bibliotecario.apellido,id11714256_biblioteca3.estado_civil.estado,id11714256_biblioteca3.bibliotecario.numero_documento,id11714256_biblioteca3.tipo_documento.tipo
  from bibliotecario 
-join tipo_documento on biblioteca3.tipo_documento.id_tipo = biblioteca3.bibliotecario.tipo_documento_id_tipo 
-join estado_civil on biblioteca3.estado_civil.id_estado = biblioteca3.bibliotecario.estado_civil_id_estado 
-WHERE biblioteca3.bibliotecario.id_bibliotecario = ".$id."");
+join tipo_documento on id11714256_biblioteca3.tipo_documento.id_tipo = id11714256_biblioteca3.bibliotecario.tipo_documento_id_tipo 
+join estado_civil on id11714256_biblioteca3.estado_civil.id_estado = id11714256_biblioteca3.bibliotecario.estado_civil_id_estado 
+WHERE id11714256_biblioteca3.bibliotecario.id_bibliotecario = ".$id."");
 
 
 
@@ -73,8 +73,8 @@ $mysql->desconectar();//funcion llamada desde mysql.php
 
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
     //ejecicion de las diferentes consultas
-    $seleccionestado =$mysql->efectuarConsulta("SELECT biblioteca3.estado_civil.id_estado, biblioteca3.estado_civil.estado from estado_civil");
-    $selecciondocumento =$mysql->efectuarConsulta("SELECT biblioteca3.tipo_documento.id_tipo,biblioteca3.tipo_documento.tipo from tipo_documento");
+    $seleccionestado =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.estado_civil.id_estado, id11714256_biblioteca3.estado_civil.estado from estado_civil");
+    $selecciondocumento =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.tipo_documento.id_tipo,id11714256_biblioteca3.tipo_documento.tipo from tipo_documento");
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>
     <div class="page-wrapper">

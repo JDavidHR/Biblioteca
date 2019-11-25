@@ -45,9 +45,9 @@
 
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
     //ejecicion de las diferentes consultas
-    $selecciondocumentob =$mysql->efectuarConsulta("SELECT biblioteca3.tipo_documento.id_tipo,biblioteca3.tipo_documento.tipo from tipo_documento");
+    $selecciondocumentob =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.tipo_documento.id_tipo,id11714256_biblioteca3.tipo_documento.tipo from tipo_documento");
    
-    $seleccionestadob =$mysql->efectuarConsulta("SELECT biblioteca3.estado_civil.id_estado, biblioteca3.estado_civil.estado from estado_civil");
+    $seleccionestadob =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.estado_civil.id_estado, id11714256_biblioteca3.estado_civil.estado from estado_civil");
 
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>

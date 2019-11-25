@@ -44,9 +44,9 @@
 
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
     //ejecicion de las diferentes consultas
-    $seleccionlibro =$mysql->efectuarConsulta("SELECT biblioteca3.libros.id_libro,biblioteca3.libros.titulo_libro from libros");
-    $seleccionbibliotecario =$mysql->efectuarConsulta("SELECT biblioteca3.bibliotecario.id_bibliotecario,biblioteca3.bibliotecario.nombre from bibliotecario");
-    $seleccionestudiante =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.id_estudiante, biblioteca3.estudiantes.nombre from estudiantes");
+    $seleccionlibro =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.libros.id_libro,id11714256_biblioteca3.libros.titulo_libro from libros");
+    $seleccionbibliotecario =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.bibliotecario.id_bibliotecario,id11714256_biblioteca3.bibliotecario.nombre from bibliotecario");
+    $seleccionestudiante =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.estudiantes.id_estudiante, id11714256_biblioteca3.estudiantes.nombre from estudiantes");
 
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>

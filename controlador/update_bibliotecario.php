@@ -30,7 +30,7 @@ require_once '../modelo/MySQL.php';//se llama la pagina mysql.php para hacer la 
         $mysql->conectar();//funcion almacendad en mysql.php
 
         //consulta de la insercion de datos en la base de datos, donde hace las respectivas consultas almacenadas en una variable
-        $sql=$mysql->efectuarConsulta("UPDATE biblioteca3.bibliotecario SET nombre ='".$nombre."',apellido = '".$apellido."',estado_civil_id_estado =".$estado." WHERE id_bibliotecario = ".$id."");
+        $sql=$mysql->efectuarConsulta("UPDATE id11714256_biblioteca3.bibliotecario SET nombre ='".$nombre."',apellido = '".$apellido."',estado_civil_id_estado =".$estado." WHERE id_bibliotecario = ".$id."");
 
 
         //condiciones de redirecionamiento a las respectivas paginas

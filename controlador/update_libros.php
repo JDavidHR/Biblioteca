@@ -30,7 +30,7 @@ if(isset($_POST['actualizar_libro']) && !empty($_POST['titulo']) && !empty($_POS
         $mysql = new MySQL;//nuevo mysql
         $mysql->conectar();//funcion almacendad en mysql.php
         //consulta de la insercion de datos en la base de datos, donde hace las respectivas consultas almacenadas en una variable
-        $sql=$mysql->efectuarConsulta("UPDATE biblioteca3.libros SET titulo_libro ='".$titulo."',editorial = '".$editorial."',autor = '".$autor."',fecha_publicacion = '".$fecha."' WHERE id_libro = ".$id."");     
+        $sql=$mysql->efectuarConsulta("UPDATE id11714256_biblioteca3.libros SET titulo_libro ='".$titulo."',editorial = '".$editorial."',autor = '".$autor."',fecha_publicacion = '".$fecha."' WHERE id_libro = ".$id."");     
 
         //condiciones de redirecionamiento a las respectivas paginas
         if($sql){

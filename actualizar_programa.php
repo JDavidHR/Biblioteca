@@ -42,7 +42,7 @@
         $mysql = new MySQL; //se crea un nuevo musql
         $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
         //ejecicion de las diferentes consultas
-        $seleccionprograma =$mysql->efectuarConsulta("SELECT biblioteca3.programa.id_programa,biblioteca3.programa.programa from programa");
+        $seleccionprograma =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.programa.id_programa,id11714256_biblioteca3.programa.programa from programa");
 
         $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
       ?>

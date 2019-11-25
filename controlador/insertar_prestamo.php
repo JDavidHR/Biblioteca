@@ -30,7 +30,7 @@ if(isset($_POST['añadir']) && !empty($_POST['titulo']) && !empty($_POST['biblio
         $mysql = new MySQL;//nuevo mysql
         $mysql->conectar();//funcion almacendad en mysql.php
         //consulta de la insercion de datos en la base de datos, donde hace las respectivas consultas almacenadas en una variable
-        $sql=$mysql->efectuarConsulta("insert into biblioteca3.prestamos(fecha_prestamo,bibliotecario_id_bibliotecario,estudiantes_id_estudiante,libros_id_libro) VALUES ('".$fecha."','".$bibliotecario."','".$estudiante."','".$titulo."')");
+        $sql=$mysql->efectuarConsulta("insert into id11714256_biblioteca3.prestamos(fecha_prestamo,bibliotecario_id_bibliotecario,estudiantes_id_estudiante,libros_id_libro) VALUES ('".$fecha."','".$bibliotecario."','".$estudiante."','".$titulo."')");
 
         //condiciones de redirecionamiento a las respectivas paginas
         if($sql){

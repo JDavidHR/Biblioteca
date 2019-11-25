@@ -10,7 +10,7 @@ if(isset($_POST['documento']) && !empty($_POST['documento']) && isset($_POST['pa
     $mysql->conectar();//funcion llamada desde mysql.php
     
     //consulta donde hace la comparacion de lo que el usuario ingresa con lo almacenado en la base de datos
-    $usuarios = $mysql->efectuarConsulta("SELECT biblioteca3.bibliotecario.numero_documento,biblioteca3.bibliotecario.contrasena FROM biblioteca3.bibliotecario WHERE biblioteca3.bibliotecario.numero_documento='".$documento."' AND biblioteca3.bibliotecario.contrasena='".$pass."'");
+    $usuarios = $mysql->efectuarConsulta("SELECT id11714256_biblioteca3.bibliotecario.numero_documento,id11714256_biblioteca3.bibliotecario.contrasena FROM id11714256_biblioteca3.bibliotecario WHERE id11714256_biblioteca3.bibliotecario.numero_documento='".$documento."' AND id11714256_biblioteca3.bibliotecario.contrasena='".$pass."'");
     
     $mysql->desconectar();//funcion llamada desde mysql.php
 }

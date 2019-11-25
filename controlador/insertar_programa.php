@@ -25,7 +25,7 @@ if(isset($_POST['añadir']) && !empty($_POST['programa'])){
         $mysql = new MySQL;//nuevo mysql
         $mysql->conectar();//funcion almacenada en mysql.php
         //consulta de la insercion de datos en la base de datos, donde hace las respectivas consultas
-        $sql=$mysql->efectuarConsulta("insert into biblioteca3.programa(programa,estado) VALUES ('".$programa."',1)");
+        $sql=$mysql->efectuarConsulta("insert into id11714256_biblioteca3.programa(programa,estado) VALUES ('".$programa."',1)");
         //condicion donde si la consulta se hace correcto
         if($sql){
             //mensaje de salida (alert) cuanod la consulta es exitosa con su respectiva redireccion de pagina

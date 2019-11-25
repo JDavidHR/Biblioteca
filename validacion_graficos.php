@@ -8,9 +8,9 @@ $mysql = new MySQL;
  //realizamos la conexion a la bd
 $mysql->conectar();
 
-//$consulta = $mysql ->efectuarConsulta("SELECT count(biblioteca3.estudiantes.programa_id) as cantidad, biblioteca3.programa.programa_nombre FROM biblioteca3.estudiantes inner join biblioteca3.programa on biblioteca3.programa.programa_id =biblioteca3.estudiantes.programa_id group by biblioteca3.programa.programa_nombre");
+//$consulta = $mysql ->efectuarConsulta("SELECT count(id11714256_biblioteca3.estudiantes.programa_id) as cantidad, id11714256_biblioteca3.programa.programa_nombre FROM id11714256_biblioteca3.estudiantes inner join id11714256_biblioteca3.programa on id11714256_biblioteca3.programa.programa_id =id11714256_biblioteca3.estudiantes.programa_id group by id11714256_biblioteca3.programa.programa_nombre");
 
-$consulta = $mysql ->efectuarConsulta("SELECT count(biblioteca3.estudiantes.estado_civil_id_estado) as cantidad, biblioteca3.estado_civil.estado FROM biblioteca3.estudiantes inner join biblioteca3.estado_civil on biblioteca3.estado_civil.id_estado = biblioteca3.estudiantes.estado_civil_id_estado group by biblioteca3.estado_civil.estado");
+$consulta = $mysql ->efectuarConsulta("SELECT count(id11714256_biblioteca3.estudiantes.estado_civil_id_estado) as cantidad, id11714256_biblioteca3.estado_civil.estado FROM id11714256_biblioteca3.estudiantes inner join id11714256_biblioteca3.estado_civil on id11714256_biblioteca3.estado_civil.id_estado = id11714256_biblioteca3.estudiantes.estado_civil_id_estado group by id11714256_biblioteca3.estado_civil.estado");
 
 
 $data = array();

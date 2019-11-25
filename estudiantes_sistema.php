@@ -47,14 +47,14 @@
 
 
 //consulta y funcion almacenada en una variable declarada
-$seleccionestudiante =$mysql->efectuarConsulta("SELECT biblioteca3.estudiantes.numero_documento,biblioteca3.estudiantes.nombre,biblioteca3.estudiantes.apellido,biblioteca3.programa.programa,biblioteca3.estado_civil.estado,biblioteca3.tipo_documento.tipo
+$seleccionestudiante =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.estudiantes.numero_documento,id11714256_biblioteca3.estudiantes.nombre,id11714256_biblioteca3.estudiantes.apellido,id11714256_biblioteca3.programa.programa,id11714256_biblioteca3.estado_civil.estado,id11714256_biblioteca3.tipo_documento.tipo
 from estudiantes
 join estudiantes
-on biblioteca3.estudiantes.id_estudiante = biblioteca3.prestamos.estudiantes_id_estudiante
+on id11714256_biblioteca3.estudiantes.id_estudiante = id11714256_biblioteca3.prestamos.estudiantes_id_estudiante
 join programa 
-on biblioteca3.programa.id_programa = biblioteca3.estudiantes.programa_id_programa
+on id11714256_biblioteca3.programa.id_programa = id11714256_biblioteca3.estudiantes.programa_id_programa
 join estado_civil
-on biblioteca3.estado_civil.id_estado = biblioteca3.estudiantes.estado_civil_id_estado");
+on id11714256_biblioteca3.estado_civil.id_estado = id11714256_biblioteca3.estudiantes.estado_civil_id_estado");
 
 
 
