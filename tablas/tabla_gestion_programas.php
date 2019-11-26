@@ -32,8 +32,8 @@ $result=mysqli_query($conexion,$sql);
 			while ($mostrar=mysqli_fetch_assoc($result)) {
 				?>
 				<tr >
-					<td><?php echo utf8_decode($id_programa=$mostrar['id_programa'])  ?></td>
-					<td><?php echo utf8_encode($programa=$mostrar['programa']) ?></td>
+					<td><?php echo $id_programa=$mostrar['id_programa']  ?></td>
+					<td><?php echo $programa=$mostrar['programa'] ?></td>
 				</tr>
 				<?php 
 			}

@@ -21,7 +21,7 @@ $result=mysqli_query($conexion,$sql);
 
 ?>
 
-
+<meta charset="UTF-8">
 <div>
 	<table class="table table-hover table-condensed table-bordered  m-b-20" id="iddatatable">
 		<thead style="background-color: #dc3545;color: white; font-weight: bold;">
@@ -52,9 +52,9 @@ $result=mysqli_query($conexion,$sql);
 					<td><?php echo utf8_decode($documento=$mostrar['numero_documento'])  ?></td>
 					<td><?php echo utf8_encode($nombre=$mostrar['nombre']) ?></td>
 					<td><?php echo utf8_encode($apellido=$mostrar['apellido']) ?></td>
-					<td><?php echo utf8_encode($programa=$mostrar['programa']) ?></td>
-					<td><?php echo utf8_encode($tipo_documento=$mostrar['tipo']) ?></td>
-					<td><?php echo utf8_encode($estado_civil=$mostrar['estado']) ?></td>
+					<td><?php echo $programa=$mostrar['programa'] ?></td>
+					<td><?php echo $tipo_documento=$mostrar['tipo'] ?></td>
+					<td><?php echo $estado_civil=$mostrar['estado'] ?></td>
 				</tr>
 				<?php 
 			}

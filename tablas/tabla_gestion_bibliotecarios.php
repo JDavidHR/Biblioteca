@@ -34,9 +34,9 @@ $result=mysqli_query($conexion,$sql);
 			while ($mostrar=mysqli_fetch_assoc($result)) {
 				?>
 				<tr >
-					<td><?php echo utf8_decode($documento=$mostrar['numero_documento'])  ?></td>
-					<td><?php echo utf8_encode($nombre=$mostrar['nombre']) ?></td>
-					<td><?php echo utf8_encode($apellido=$mostrar['apellido']) ?></td>
+					<td><?php echo $documento=$mostrar['numero_documento']  ?></td>
+					<td><?php echo $nombre=$mostrar['nombre'] ?></td>
+					<td><?php echo $apellido=$mostrar['apellido'] ?></td>
 				</tr>
 				<?php 
 			}

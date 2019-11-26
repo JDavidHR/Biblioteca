@@ -62,7 +62,7 @@ $result=mysqli_query($conexion,$sql);
 					<td><?php echo utf8_decode($id=$mostrar['id_prestamo'])  ?></td>
 					<td><?php echo utf8_encode($fecha=$mostrar['fecha_prestamo']) ?></td>
 					<td><?php echo utf8_encode($estudiante=$mostrar['nombreestudiante']) ?></td>
-					<td><?php echo utf8_encode($libro=$mostrar['titulo_libro']) ?></td>
+					<td><?php echo $libro=$mostrar['titulo_libro'] ?></td>
 					<td><?php echo utf8_encode($bibliotecario=$mostrar['nombrebibliotecario']) ?></td>
 				</tr>
 				<?php 

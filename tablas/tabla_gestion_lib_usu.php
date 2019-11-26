@@ -37,11 +37,11 @@ $result=mysqli_query($conexion,$sql);
 			while ($mostrar=mysqli_fetch_assoc($result)) {
 				?>
 				<tr >
-					<td><?php echo utf8_decode($id=$mostrar['id_libro'])  ?></td>
-					<td><?php echo utf8_encode($titulo=$mostrar['titulo_libro']) ?></td>
-					<td><?php echo utf8_encode($editorial=$mostrar['editorial']) ?></td>
-					<td><?php echo utf8_encode($autor=$mostrar['autor']) ?></td>
-					<td><?php echo utf8_encode($fecha=$mostrar['fecha_publicacion']) ?></td>
+					<td><?php echo $id=$mostrar['id_libro']  ?></td>
+					<td><?php echo $titulo=$mostrar['titulo_libro'] ?></td>
+					<td><?php echo $editorial=$mostrar['editorial'] ?></td>
+					<td><?php echo $autor=$mostrar['autor'] ?></td>
+					<td><?php echo $fecha=$mostrar['fecha_publicacion'] ?></td>
 				</tr>
 				<?php 
 			}

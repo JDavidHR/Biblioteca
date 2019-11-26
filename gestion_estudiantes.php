@@ -11,11 +11,12 @@ if(!isset($_SESSION['rol'])){//Valida si existe la variable de sesion rol, esta 
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
+    
     <link rel="stylesheet" type="text/css" href="librerias/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="librerias/datatable/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="librerias/datatable/dataTables.bootstrap4.min.css">
