@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(!isset($_SESSION['rol'])){//Valida si existe la variable de sesion rol, esta variable es la que define si es un estudiante o un administrador
+    header('location: ../index.php');//Se redirecciona a la pagina principal
+    }else{
+        if($_SESSION['rol']!=1){//Validacion para salber si el rol es estudiante
+    //        echo $_SESSION['rol'];
+        header('location: ../index.php');//Se redirecciona a la pagina principal
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -19,7 +31,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Gestion Programa</title>
+    <title>Libros Disponibles</title>
     <?php require_once "scripts.php";  ?>
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">

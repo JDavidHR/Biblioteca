@@ -1,4 +1,16 @@
 <?php
+session_start();
+if(isset($_SESSION['rol'])){//Valida si existe la variable de sesion rol, esta variable es la que define si es un estudiante o un administrador
+    if($_SESSION['rol']==2){//Validacion para saber si el rol es administrador
+        header('location: ../index_Bibliotecario.php');
+    //Se redirecciona a la pagina principal
+    }else{
+        if($_SESSION['rol']==1){//Validacion para salber si el rol es estudiante
+    //        echo $_SESSION['rol'];
+        header('location: ../prestamo_Usuario.php');//Se redirecciona a la pagina principal
+        }
+    }
+}
 //condicion para ver si los campos estan vacios
 if(isset($_POST['documento']) && !empty($_POST['documento']) && isset($_POST['password']) && !empty($_POST['password'])){
 
@@ -16,7 +28,7 @@ if(isset($_POST['documento']) && !empty($_POST['documento']) && isset($_POST['pa
 }
 
 
-    
+if($usuarios){ 
 //condicion donde si la consulta encuentra el valor ingresado, es decir si no encuentra nada el valor sera 0 y si encuentra algo sera 1
  if (mysqli_num_rows($usuarios) > 0){
      
@@ -38,13 +50,14 @@ if(isset($_POST['documento']) && !empty($_POST['documento']) && isset($_POST['pa
        //declaracion de variables
         $_SESSION['usuario'] = $usuario;
         $_SESSION['acceso'] = true; //variable logica
-         
+        $_SESSION['rol']=2;
+
         header("Location: ../index_Bibliotecario.php");//ubicacion si el usuario ingresado existe
        
 
         
     }
-    else{
+    }else{
      header("Location: ../login_bibliotecario.php"); //ubicacion si el usuario ingresado no existe
 
     }

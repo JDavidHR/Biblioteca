@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(!isset($_SESSION['rol'])){//Valida si existe la variable de sesion rol, esta variable es la que define si es un estudiante o un administrador
+    header('location: ../index.php');//Se redirecciona a la pagina principal
+    }else{
+        if($_SESSION['rol']!=2){//Validacion para salber si el rol es administrador
+    //        echo $_SESSION['rol'];
+        header('location: ../index.php');//Se redirecciona a la pagina principal
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +56,7 @@
 
     $mysql->conectar(); //se ejecuta la funcion almacenda en mysql.php
     //ejecicion de las diferentes consultas
-    $seleccionlibro =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.libros.id_libro,id11714256_biblioteca3.libros.titulo_libro from libros");
+    $seleccionlibro =$mysql->efectuarConsulta("SELECT id11714256_biblioteca3.libros.id_libro,id11714256_biblioteca3.libros.titulo_libro from libros where id11714256_biblioteca3.libros.estado = 1");
 
     $mysql->desconectar(); //se ejecuta la funcion alamacenada en mysql.php
     ?>

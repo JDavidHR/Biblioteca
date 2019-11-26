@@ -5,14 +5,17 @@ require_once "../modelo/MySQL.php";
 $obj= new MySQL();
 $conexion=$obj->conectar();
 
-$sql="SELECT id11714256_biblioteca3.estudiantes.numero_documento,id11714256_biblioteca3.estudiantes.nombre,id11714256_biblioteca3.estudiantes.apellido,id11714256_biblioteca3.programa.programa,id11714256_biblioteca3.libros.titulo_libro
-from prestamos
-join estudiantes
-on id11714256_biblioteca3.estudiantes.id_estudiante = id11714256_biblioteca3.prestamos.estudiantes_id_estudiante
+$sql="SELECT id11714256_biblioteca3.estudiantes.numero_documento,id11714256_biblioteca3.estudiantes.nombre,id11714256_biblioteca3.estudiantes.apellido,id11714256_biblioteca3.programa.programa,id11714256_biblioteca3.tipo_documento.tipo,id11714256_biblioteca3.estado_civil.estado
+from estudiantes
+
 join programa 
 on id11714256_biblioteca3.programa.id_programa = id11714256_biblioteca3.estudiantes.programa_id_programa
-join libros
-on id11714256_biblioteca3.libros.id_libro = id11714256_biblioteca3.prestamos.libros_id_libro where id11714256_biblioteca3.estudiantes.estado = 1";
+join tipo_documento
+on id11714256_biblioteca3.tipo_documento.id_tipo = id11714256_biblioteca3.estudiantes.tipo_documento_id_tipo
+join estado_civil
+on id11714256_biblioteca3.estado_civil.id_estado = id11714256_biblioteca3.estudiantes.estado_civil_id_estado
+
+where id11714256_biblioteca3.estudiantes.estado = 1";
 $result=mysqli_query($conexion,$sql);
 
 
@@ -27,7 +30,8 @@ $result=mysqli_query($conexion,$sql);
 				<td>Nombre</td>
 				<td>Apellido</td>
 				<td>Programa Cursa</td>
-				<td>Libro Prestado</td>
+				<td>Tipo Documento</td>
+				<td>Estado Civil</td>
 			</tr>
 		</thead>
 		<tfoot style="background-color: #ccc;color: white; font-weight: bold;">
@@ -36,7 +40,8 @@ $result=mysqli_query($conexion,$sql);
 				<td>Nombre</td>
 				<td>Apellido</td>
 				<td>Programa Cursa</td>
-				<td>Libro Prestado</td>
+				<td>Tipo Documento</td>
+				<td>Estado Civil</td>
 			</tr>
 		</tfoot>
 		<tbody >
@@ -48,7 +53,8 @@ $result=mysqli_query($conexion,$sql);
 					<td><?php echo utf8_encode($nombre=$mostrar['nombre']) ?></td>
 					<td><?php echo utf8_encode($apellido=$mostrar['apellido']) ?></td>
 					<td><?php echo utf8_encode($programa=$mostrar['programa']) ?></td>
-					<td><?php echo utf8_encode($apellido=$mostrar['titulo_libro']) ?></td>
+					<td><?php echo utf8_encode($tipo_documento=$mostrar['tipo']) ?></td>
+					<td><?php echo utf8_encode($estado_civil=$mostrar['estado']) ?></td>
 				</tr>
 				<?php 
 			}

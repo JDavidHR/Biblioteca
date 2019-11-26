@@ -1,3 +1,17 @@
+<?php
+session_start();
+if(isset($_SESSION['rol'])){//Valida si existe la variable de sesion rol, esta variable es la que define si es un estudiante o un administrador
+    if($_SESSION['rol']==2){//Validacion para saber si el rol es administrador
+        header('location: ../index_Bibliotecario.php');
+    //Se redirecciona a la pagina principal
+    }else{
+        if($_SESSION['rol']==1){//Validacion para salber si el rol es estudiante
+    //        echo $_SESSION['rol'];
+        header('location: ../prestamo_Usuario.php');//Se redirecciona a la pagina principal
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

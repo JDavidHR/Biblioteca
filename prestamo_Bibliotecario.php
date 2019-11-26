@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(!isset($_SESSION['rol'])){//Valida si existe la variable de sesion rol, esta variable es la que define si es un estudiante o un administrador
+    header('location: ../index.php');//Se redirecciona a la pagina principal
+    }else{
+        if($_SESSION['rol']!=2){//Validacion para salber si el rol es administrador
+    //        echo $_SESSION['rol'];
+        header('location: ../index.php');//Se redirecciona a la pagina principal
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,7 +114,7 @@
                             <!--creacion de etiquetas con funcion de boton para redireccionar a las diferentes paginas-->
                             <center><a href="eliminar_prestamo.php" class="au-btn au-btn-- au-btn--green m-b-20" style="text-align: center;">Eliminar Prestamo</a>
                             <a href="realizar_prestamo_part2.php" class="au-btn au-btn-- au-btn--green m-b-20" style="text-align: center;">Añadir Prestamo</a>
-                            <a href="actualizar_prestamo.php" class="au-btn au-btn-- au-btn--green m-b-20" style="text-align: center;">Actualizar Prestamo</a></center>
+                            </center>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">

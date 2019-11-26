@@ -1,9 +1,21 @@
 
 <?php 
 
+session_start();
+if(!isset($_SESSION['rol'])){//Valida si existe la variable de sesion rol, esta variable es la que define si es un docente o un estudiante
+    header('location: ../index.php');//Se redirecciona a docente.php
+    }else{
+        if($_SESSION['rol']!=1){//Validacion para salber si el rol es estudiante
+    //        echo $_SESSION['rol'];
+        header('location: ../index.php');//Se redirecciona a docente.php
+        }
+    }
+
 require_once "../modelo/MySQL.php";
 $obj= new MySQL();
 $conexion=$obj->conectar();
+
+$id_estudiante = $_SESSION['id_est'];
 
 $sql="SELECT id11714256_biblioteca3.prestamos.id_prestamo,id11714256_biblioteca3.prestamos.fecha_prestamo,id11714256_biblioteca3.estudiantes.nombre as nombreestudiante ,id11714256_biblioteca3.libros.titulo_libro, id11714256_biblioteca3.bibliotecario.nombre as nombrebibliotecario
 from prestamos 
@@ -12,7 +24,10 @@ on id11714256_biblioteca3.estudiantes.id_estudiante = id11714256_biblioteca3.pre
 join libros 
 on id11714256_biblioteca3.libros.id_libro = id11714256_biblioteca3.prestamos.libros_id_libro  
 join bibliotecario 
-on id11714256_biblioteca3.bibliotecario.id_bibliotecario = id11714256_biblioteca3.prestamos.bibliotecario_id_bibliotecario";
+on id11714256_biblioteca3.bibliotecario.id_bibliotecario = id11714256_biblioteca3.prestamos.bibliotecario_id_bibliotecario
+where id11714256_biblioteca3.estudiantes.id_estudiante = ".$id_estudiante."";
+
+
 $result=mysqli_query($conexion,$sql);
 
 

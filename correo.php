@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(!isset($_SESSION['rol'])){//Valida si existe la variable de sesion rol, esta variable es la que define si es un estudiante o un administrador
+    header('location: ../index.php');//Se redirecciona a la pagina principal
+    }else{
+        if($_SESSION['rol']!=2){//Validacion para salber si el rol es administrador
+    //        echo $_SESSION['rol'];
+        header('location: ../index.php');//Se redirecciona a la pagina principal
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -92,7 +104,7 @@
                                                 /*Inicio captura de datos enviados por $_POST para enviar el correo */
                                                 $mail_setFromEmail='bibliotecacotecnova@gmail.com';
                                                 $mail_setFromName='Administrador';
-                                                $txt_message='Bienvenido, te invitamos a visitar nuestra plataforma, ingresa ya! http://localhost/Biblioteca/login.php';
+                                                $txt_message='Bienvenido, te invitamos a visitar nuestra plataforma, ingresa ya! https://bibliotecacotecnova.000webhostapp.com/index.php';
                                                 $mail_subject='Correo de Invitacion';
                                                 
                                                 sendemail($mail_username,$mail_userpassword,$mail_setFromEmail,$mail_setFromName,$mail_addAddress,$txt_message,$mail_subject,$template);//Enviar el mensaje
