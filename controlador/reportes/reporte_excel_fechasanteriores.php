@@ -34,7 +34,7 @@ $result = mysqli_query($link,"SELECT id11714256_biblioteca3.prestamos.fecha_pres
 			<td><?php echo $row['fecha_prestamo'];?></td>
 			<td><?php echo $row['nombre2'];?></td>
 			<td><?php echo $row['nombre'];?></td>
-			<td><?php echo $row['titulo_libro'];?></td>					
+			<td><?php echo utf8_decode($row['titulo_libro']);?></td>					
 		</tr>
 
 		<?php

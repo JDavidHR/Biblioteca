@@ -27,7 +27,7 @@ $result = mysqli_query($link,"SELECT id11714256_biblioteca3.prestamos.id_prestam
 			<!--se muestran los valores almacenados en la variable declarada en la consulta-->
 			<td><?php echo $row['id_prestamo'];?></td>
 			<td><?php echo $row['nombre'];?></td>
-			<td><?php echo $row['programa'];?></td>					
+			<td><?php echo utf8_decode($row['programa']);?></td>					
 		</tr>
 		<?php
 	}		
